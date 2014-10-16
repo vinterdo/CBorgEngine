@@ -4,8 +4,11 @@
 #include <GLFW/glfw3.h>  
 #include <stdio.h>  
 #include <stdlib.h> 
+#include <time.h>
+#include <sstream>
 
 #include "settings.h"
+#include "scene.h"
 
 class application
 {
@@ -26,6 +29,13 @@ private:
 	GLFWwindow* window;
 	settings currentSettings;
 
+	clock_t time, newTime, dt;
+	float FPS, FPSTime;
+	unsigned frames;
+
+	scene* currentScene;
+
+	
 	void initOpenGL(void);
 };
 

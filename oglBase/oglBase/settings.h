@@ -10,6 +10,7 @@ public:
 	int getResX();
 	int getResY();
 	int getFixedUpdatePS();
+	bool getShowFPS();
 	std::string getAppName();
 
 private:
@@ -17,5 +18,6 @@ private:
 	int resX;
 	int resY;
 	int fixedUpdatePS;
+	bool showFPS;
 };
 
