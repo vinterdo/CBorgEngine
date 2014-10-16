@@ -1,0 +1,110 @@
+#include "application.h"
+
+application::application(void)
+{
+}
+
+application::~application(void)
+{
+}
+
+void application::run(void)
+{
+	running = true;
+	currentSettings = settings();
+
+	start();
+	while(running)
+	{
+		update();
+		draw();
+	}
+
+	destroy();
+}
+
+void application::start(void)
+{
+	initOpenGL();
+}
+
+void application::update(void)
+{
+	glfwPollEvents();  
+	if(glfwWindowShouldClose(window)) stop();
+}
+
+void application::fixedUpdate(void)
+{
+}
+
+void application::draw(void)
+{
+    glClear(GL_COLOR_BUFFER_BIT);  
+    glfwSwapBuffers(window);  
+}
+
+void application::destroy(void)
+{
+	glfwDestroyWindow(window);  
+    glfwTerminate();  
+	exit(EXIT_SUCCESS);  
+}
+
+void application::stop(void)
+{
+	running = false;
+}
+
+//===============================================
+
+static void error_callback(int error, const char* description)  
+{  
+    fputs(description, stderr);  
+    _fgetchar();  
+}
+
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)  
+{  
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)  
+    glfwSetWindowShouldClose(window, GL_TRUE);  
+}  
+
+// ===============================================
+
+
+void application::initOpenGL(void)
+{
+	glfwSetErrorCallback(error_callback);  
+  
+    if (!glfwInit())  
+    {  
+        exit(EXIT_FAILURE);  
+    }  
+ 
+    //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); //Request a specific OpenGL version  
+    //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); //Request a specific OpenGL version  
+    //glfwWindowHint(GLFW_SAMPLES, 4); //Request 4x antialiasing  
+    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); 
+
+	window = glfwCreateWindow(currentSettings.getResX(), currentSettings.getResY(), currentSettings.getAppName().c_str(), NULL, NULL);  
+    if (!window)  
+    {  
+        fprintf(stderr, "Failed to open GLFW window.\n" );  
+        glfwTerminate();  
+        exit(EXIT_FAILURE);  
+    }    
+
+    glfwMakeContextCurrent(window);  
+    glfwSetKeyCallback(window, key_callback);  
+    GLenum err = glewInit();  
+    if (err != GLEW_OK)   
+    {  
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));  
+		stop();
+    }  
+    glClearColor(0.0f, 0.0f, 1.0f, 0.0f);  
+  
+}
+
+//===============================================
