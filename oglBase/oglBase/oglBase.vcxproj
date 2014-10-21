@@ -85,6 +85,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="settings.cpp" />
+    <ClCompile Include="shader.cpp" />
     <ClCompile Include="testGO.cpp" />
     <ClCompile Include="testScene1.cpp" />
   </ItemGroup>
@@ -93,6 +94,7 @@
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="settings.h" />
+    <ClInclude Include="shader.h" />
     <ClInclude Include="testGO.h" />
     <ClInclude Include="testScene1.h" />
   </ItemGroup>

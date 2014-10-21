@@ -25,6 +25,12 @@
     <Filter Include="TestApp1\Source Files">
       <UniqueIdentifier>{7447307a-45b3-42a8-bece-305c65a11d7f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Common">
+      <UniqueIdentifier>{8508248f-57f2-4368-b064-4b5bb6ce2e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Shaders">
+      <UniqueIdentifier>{9336bd1b-29b7-4d39-8c21-d483fbe9f0d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,6 +54,9 @@
     <ClCompile Include="testGO.cpp">
       <Filter>TestApp1\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Engine\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -67,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="testGO.h">
       <Filter>TestApp1\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Engine\Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

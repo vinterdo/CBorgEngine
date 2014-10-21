@@ -163,3 +163,8 @@ void application::initOpenGL(void)
 }
 
 //===============================================
+
+void application::setScene(scene* s)
+{
+	currentScene = s;
+}

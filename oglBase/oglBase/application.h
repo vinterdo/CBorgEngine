@@ -24,6 +24,8 @@ public:
 	void destroy(void);
 	void stop(void);
 
+	void setScene(scene* s);
+
 private:
 	bool running;
 	GLFWwindow* window;

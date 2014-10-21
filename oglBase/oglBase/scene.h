@@ -8,16 +8,16 @@ public:
 	scene(void);
 	~scene(void);
 
-	void start();
-	void update();
-	void fixedUpdate();
-	void draw();
-	void destroy();
+	virtual void start();
+	virtual void update();
+	virtual void fixedUpdate();
+	virtual void draw();
+	virtual void destroy();
 
-	void addGO(gameObject GO);
-	void removeGO(gameObject GO);
+	void addGO(gameObject* GO);
+	void removeGO(gameObject* GO);
 
 private:
-	std::vector<gameObject> objects;
+	std::vector<gameObject*> objects;
 };
 
