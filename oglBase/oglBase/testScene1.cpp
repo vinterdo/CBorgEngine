@@ -7,6 +7,7 @@ testScene1::testScene1()
 {
 	flipCount = 0;
 	countdown = 0;
+	rounds = 0;
 }
 
 
@@ -33,7 +34,6 @@ void testScene1::start(void)
 	colors.push_back(glm::vec3(0, 1 ,0));
 	colors.push_back(glm::vec3(0.2, 0.2 ,0.2));
 	colors.push_back(glm::vec3(0, 1 ,1));
-	
 	
 	srand(time(NULL));
 	std::random_shuffle (colors.begin(), colors.end());
@@ -116,6 +116,8 @@ void testScene1::fixedUpdate()
 				if(id == -1 && cards[i]->flipped) id = i;
 				cards[i]->flipped = false;
 			}
+			rounds++;
+			printf("Runda %i", rounds);
 		}
 		countdown--;
 	}

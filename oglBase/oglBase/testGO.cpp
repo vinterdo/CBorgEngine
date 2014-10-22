@@ -74,7 +74,7 @@ void testGO::draw(void)
 		0,                  // stride
 		(void*)0            // array buffer offset
 	);
-	glDrawArrays(GL_TRIANGLES, 0, 6); // 3 indices starting at 0 -> 1 triangle
+	glDrawArrays(GL_TRIANGLES, 0, 6); 
 
 	glDisableVertexAttribArray(vertexPosition_modelspaceID);
 }

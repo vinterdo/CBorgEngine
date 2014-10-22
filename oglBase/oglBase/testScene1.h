@@ -11,6 +11,7 @@ public:
 	virtual void start(void);
 	virtual void update(void);
 	virtual void fixedUpdate(void);
+	int rounds;
 
 private:
 	std::vector<testGO*> cards;
