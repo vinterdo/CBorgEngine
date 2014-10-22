@@ -22,6 +22,7 @@ public:
 	
 	transform getTrans(void);
 	void setTrans(transform t);
+	bool disabled;
 
 private:
 	transform trans;

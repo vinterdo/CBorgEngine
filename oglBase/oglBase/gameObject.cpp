@@ -3,6 +3,7 @@
 
 gameObject::gameObject(void)
 {
+	disabled = false;
 }
 
 

@@ -19,7 +19,8 @@ void scene::update()
 {
 	for(int i =0; i < objects.size(); i++)
 	{
-		objects[i]->update();
+		if(!objects[i]->disabled)
+			objects[i]->update();
 	}
 }
 
@@ -27,7 +28,8 @@ void scene::fixedUpdate()
 {
 	for(int i =0; i < objects.size(); i++)
 	{
-		objects[i]->fixedUpdate();
+		if(!objects[i]->disabled)
+			objects[i]->fixedUpdate();
 	}
 }
 
@@ -36,7 +38,8 @@ void scene::draw()
 
 	for(int i =0; i < objects.size(); i++)
 	{
-		objects[i]->draw();
+		if(!objects[i]->disabled)
+			objects[i]->draw();
 	}
 }
 
@@ -44,6 +47,7 @@ void scene::destroy()
 {
 	for(int i =0; i < objects.size(); i++)
 	{
+
 		objects[i]->destroy();
 	}
 }

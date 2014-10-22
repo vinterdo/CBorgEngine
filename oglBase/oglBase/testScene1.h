@@ -10,7 +10,13 @@ public:
 
 	virtual void start(void);
 	virtual void update(void);
+	virtual void fixedUpdate(void);
+
 private:
 	std::vector<testGO*> cards;
+	
+	int selectedID;
+	int flipCount;
+	int countdown;
 };
 

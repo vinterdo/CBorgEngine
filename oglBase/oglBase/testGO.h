@@ -16,6 +16,9 @@ public:
 	virtual void start(void);
 
 	bool selected;
+	bool flipped;
+
+	glm::vec3 color;
 
 private:
 	GLuint programID;
@@ -24,7 +27,6 @@ private:
 
 	glm::mat4 MVP;
 	GLuint MatrixID;
-	glm::vec3 color;
-
+	float rotation;
 };
 

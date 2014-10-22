@@ -22,7 +22,8 @@ private:
 	input(void);
 	~input(void);
 
-	static bool keyboardState[GLFW_KEY_LAST];
+	static bool kbState[GLFW_KEY_LAST];
+	static bool oldKbState[GLFW_KEY_LAST];
 	static GLFWwindow* window;
 	/*priv mouse state*/
 };

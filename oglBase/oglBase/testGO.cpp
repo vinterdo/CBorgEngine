@@ -4,6 +4,8 @@
 testGO::testGO(void)
 {
 	selected = false;
+	flipped = false;
+	rotation = 0.0f;
 }
 
 
@@ -47,7 +49,20 @@ void testGO::draw(void)
 {
 	glUseProgram(programID);
 	
+	glm::mat4 rotationM = glm::rotate(glm::mat4(1.0f), rotation, glm::vec3(1, 0, 0));
+	int rotationID = glGetUniformLocation(programID, "rotationM");
+	glUniformMatrix4fv(rotationID, 1, GL_FALSE, &rotationM[0][0]);
+
+	int colorID = glGetUniformLocation(programID, "cardColor");
+	glUniform3fv(colorID, 1, &color[0]);
+
+	int visID = glGetUniformLocation(programID, "colorVis");
+	glUniform1f(visID, glm::sin((rotation/360.0f)*glm::pi<float>()));
+
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+
+	GLint selectionID = glGetUniformLocation(programID, "selected");
+	glUniform1i(selectionID, selected);
 
 	glEnableVertexAttribArray(vertexPosition_modelspaceID);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -72,4 +87,13 @@ void testGO::fixedUpdate(void)
 }
 void testGO::update(void)
 {
+	if(flipped)
+	{
+		if(rotation < 180)
+				rotation += 1;
+	}
+	else
+	{
+		rotation *= 0.9f;
+	}
 }
