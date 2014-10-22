@@ -26,7 +26,6 @@ public:
 	void destroy(void);
 	void stop(void);
 
-	input getInput();
 
 	void setScene(scene* s);
 
@@ -40,7 +39,6 @@ private:
 	unsigned frames;
 
 	scene* currentScene;
-	input _input;
 
 	
 	void initOpenGL(void);

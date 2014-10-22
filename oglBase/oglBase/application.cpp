@@ -68,6 +68,7 @@ void application::start(void)
 void application::update(void)
 {
 	glfwPollEvents();  
+	input::update(window);
 	if(glfwWindowShouldClose(window)) stop();
 
 	if(currentScene != NULL)
@@ -167,9 +168,4 @@ void application::initOpenGL(void)
 void application::setScene(scene* s)
 {
 	currentScene = s;
-}
-
-input application::getInput()
-{
-	return _input;
 }

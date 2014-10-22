@@ -1,25 +1,29 @@
 #pragma once
 #include <glm.hpp>
+#include <glfw/glfw3.h>
+
 class input
 {
 public:
+	
+	static void update(GLFWwindow* window);
+	static bool isKeyDown(int key);
+	static bool isKeyPressed(int key);
+	static bool isKeyReleased(int key);
+	static glm::vec2 getMousePos(void);
+	static bool isLMBDown(void);
+	static bool isLMBPressed(void);
+	static bool isLMBReleased(void);
+	static bool isRMBDown(void);
+	static bool isRMBPressed(void);
+	static bool isRMBReleased(void);
+
+private:
 	input(void);
 	~input(void);
 
-	void update(void);
-	bool isKeyDown(/*key*/);
-	bool isKeyPressed(/*key*/);
-	bool isKeyReleased(/*key*/);
-	glm::vec2 getMousePos(void);
-	bool isLMBDown(void);
-	bool isLMBPressed(void);
-	bool isLMBReleased(void);
-	bool isRMBDown(void);
-	bool isRMBPressed(void);
-	bool isRMBReleased(void);
-
-private:
-	/*priv kb state*/
+	static bool keyboardState[GLFW_KEY_LAST];
+	static GLFWwindow* window;
 	/*priv mouse state*/
 };
 

@@ -3,6 +3,7 @@
 
 testGO::testGO(void)
 {
+	selected = false;
 }
 
 

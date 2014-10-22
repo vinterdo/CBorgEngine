@@ -15,6 +15,7 @@ public:
 	virtual void destroy(void);
 	virtual void start(void);
 
+	bool selected;
 
 private:
 	GLuint programID;
@@ -23,6 +24,7 @@ private:
 
 	glm::mat4 MVP;
 	GLuint MatrixID;
+	glm::vec3 color;
 
 };
 

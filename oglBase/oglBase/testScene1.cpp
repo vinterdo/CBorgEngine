@@ -1,7 +1,7 @@
 #include "testScene1.h"
+#include "input.h"
 
-
-testScene1::testScene1(void)
+testScene1::testScene1()
 {
 }
 
@@ -22,3 +22,6 @@ void testScene1::start(void)
 	}
 }
 
+void testScene1::update(void)
+{
+}

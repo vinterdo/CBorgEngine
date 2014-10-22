@@ -8,7 +8,8 @@ public:
 	testScene1(void);
 	~testScene1(void);
 
-	void start(void);
+	virtual void start(void);
+	virtual void update(void);
 private:
 	std::vector<testGO*> cards;
 };
