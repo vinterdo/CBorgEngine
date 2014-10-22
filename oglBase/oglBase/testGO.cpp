@@ -13,6 +13,16 @@ testGO::~testGO(void)
 void testGO::start(void)
 {
 	programID = LoadShaders( "SimpleVertexShader.vertexshader", "SimpleFragmentShader.fragmentshader" );
+	
+	MatrixID = glGetUniformLocation(programID, "MVP");
+	glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f);
+	glm::mat4 View       = glm::lookAt(
+								glm::vec3(0,0,3), // Camera is at (4,3,3), in World Space
+								glm::vec3(0,0,0), // and looks at the origin
+								glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
+						   );
+	glm::mat4 Model      = glm::translate(glm::mat4(1.0f), getTrans().getPos());
+	MVP        = Projection * View * Model; 
 
 	vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
 
@@ -35,6 +45,8 @@ void testGO::start(void)
 void testGO::draw(void)
 {
 	glUseProgram(programID);
+	
+	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
 	glEnableVertexAttribArray(vertexPosition_modelspaceID);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);

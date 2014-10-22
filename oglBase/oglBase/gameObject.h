@@ -1,11 +1,13 @@
+#pragma once
+
 #include <GL/glew.h>  
 #include <GLFW/glfw3.h>  
 #include <stdio.h>  
 #include <stdlib.h> 
 #include <time.h>
 #include <sstream>
+#include "transform.h"
 
-#pragma once
 class gameObject
 {
 public:
@@ -17,5 +19,11 @@ public:
 	virtual void fixedUpdate(void);
 	virtual void destroy(void);
 	virtual void start(void);
+	
+	transform getTrans(void);
+	void setTrans(transform t);
+
+private:
+	transform trans;
 };
 

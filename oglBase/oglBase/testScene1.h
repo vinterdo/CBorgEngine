@@ -9,5 +9,7 @@ public:
 	~testScene1(void);
 
 	void start(void);
+private:
+	std::vector<testGO*> cards;
 };
 

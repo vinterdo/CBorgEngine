@@ -29,3 +29,13 @@ void gameObject::fixedUpdate(void)
 void gameObject::destroy(void)
 {
 }
+
+transform gameObject::getTrans(void)
+{
+	return trans;
+}
+
+void gameObject::setTrans(transform t)
+{
+	trans = t;
+}

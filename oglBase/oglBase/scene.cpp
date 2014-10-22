@@ -33,6 +33,7 @@ void scene::fixedUpdate()
 
 void scene::draw()
 {
+
 	for(int i =0; i < objects.size(); i++)
 	{
 		objects[i]->draw();

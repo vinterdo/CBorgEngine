@@ -6,9 +6,11 @@
 #include <stdlib.h> 
 #include <time.h>
 #include <sstream>
+#include <glm.hpp>
 
 #include "settings.h"
 #include "scene.h"
+#include "input.h"
 
 class application
 {
@@ -24,6 +26,8 @@ public:
 	void destroy(void);
 	void stop(void);
 
+	input getInput();
+
 	void setScene(scene* s);
 
 private:
@@ -36,6 +40,7 @@ private:
 	unsigned frames;
 
 	scene* currentScene;
+	input _input;
 
 	
 	void initOpenGL(void);

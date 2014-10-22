@@ -168,3 +168,8 @@ void application::setScene(scene* s)
 {
 	currentScene = s;
 }
+
+input application::getInput()
+{
+	return _input;
+}

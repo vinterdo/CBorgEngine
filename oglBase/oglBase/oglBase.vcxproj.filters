@@ -57,6 +57,12 @@
     <ClCompile Include="shader.cpp">
       <Filter>Engine\Common</Filter>
     </ClCompile>
+    <ClCompile Include="transform.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -79,6 +85,12 @@
     </ClInclude>
     <ClInclude Include="shader.h">
       <Filter>Engine\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="transform.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
