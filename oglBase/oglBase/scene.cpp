@@ -49,7 +49,6 @@ void scene::destroy()
 
 void scene::addGO(gameObject* GO)
 {
-	printf("addedGO");
 	objects.push_back(GO);
 	GO->start();
 }

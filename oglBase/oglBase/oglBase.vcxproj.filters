@@ -81,4 +81,12 @@
       <Filter>Engine\Common</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleFragmentShader.fragmentshader">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="SimpleVertexShader.vertexshader">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+  </ItemGroup>
 </Project>

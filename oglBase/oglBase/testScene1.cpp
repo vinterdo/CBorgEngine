@@ -3,11 +3,14 @@
 
 testScene1::testScene1(void)
 {
-	printf("testscene");
-	addGO(new testGO());
 }
 
 
 testScene1::~testScene1(void)
 {
+}
+
+void testScene1::start(void)
+{
+	addGO(new testGO());
 }

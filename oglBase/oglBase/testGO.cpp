@@ -3,7 +3,6 @@
 
 testGO::testGO(void)
 {
-	printf("testgo");
 }
 
 
@@ -13,7 +12,6 @@ testGO::~testGO(void)
 
 void testGO::start(void)
 {
-	printf("HAHAHAHA");
 	programID = LoadShaders( "SimpleVertexShader.vertexshader", "SimpleFragmentShader.fragmentshader" );
 
 	vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
@@ -21,7 +19,10 @@ void testGO::start(void)
 	static const GLfloat g_vertex_buffer_data[] = { 
 		-1.0f, -1.0f, 0.0f,
 		 1.0f, -1.0f, 0.0f,
-		 0.0f,  1.0f, 0.0f,
+		 1.0f,  1.0f, 0.0f,
+		 1.0f,  1.0f, 0.0f,
+		-1.0f,  1.0f, 0.0f,
+		-1.0f, -1.0f, 0.0f
 	};
 
 	vertexbuffer;
@@ -33,24 +34,21 @@ void testGO::start(void)
 
 void testGO::draw(void)
 {
-	printf("draw");
 	glUseProgram(programID);
 
-		glEnableVertexAttribArray(vertexPosition_modelspaceID);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-		glVertexAttribPointer(
-			vertexPosition_modelspaceID, // The attribute we want to configure
-			3,                  // size
-			GL_FLOAT,           // type
-			GL_FALSE,           // normalized?
-			0,                  // stride
-			(void*)0            // array buffer offset
-		);
+	glEnableVertexAttribArray(vertexPosition_modelspaceID);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+	glVertexAttribPointer(
+		vertexPosition_modelspaceID, // The attribute we want to configure
+		3,                  // size
+		GL_FLOAT,           // type
+		GL_FALSE,           // normalized?
+		0,                  // stride
+		(void*)0            // array buffer offset
+	);
+	glDrawArrays(GL_TRIANGLES, 0, 6); // 3 indices starting at 0 -> 1 triangle
 
-		glDrawArrays(GL_TRIANGLES, 0, 3); // 3 indices starting at 0 -> 1 triangle
-
-		glDisableVertexAttribArray(vertexPosition_modelspaceID);
-
+	glDisableVertexAttribArray(vertexPosition_modelspaceID);
 }
 
 void testGO::destroy(void)
