@@ -124,6 +124,6 @@ void testScene1::fixedUpdate()
 	if(flipCount >= 2)
 	{
 		flipCount = 0;
-		countdown = 180;
+		countdown = 120;
 	}
 }
