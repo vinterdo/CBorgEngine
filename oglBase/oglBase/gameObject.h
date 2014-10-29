@@ -6,7 +6,9 @@
 #include <stdlib.h> 
 #include <time.h>
 #include <sstream>
+#include <vector>
 #include "transform.h"
+#include "component.h"
 
 class gameObject
 {
@@ -26,5 +28,6 @@ public:
 
 private:
 	transform trans;
+	std::vector<component*> components;
 };
 

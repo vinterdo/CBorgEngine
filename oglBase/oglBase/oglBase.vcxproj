@@ -82,6 +82,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="application.cpp" />
+    <ClCompile Include="component.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
@@ -94,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h" />
+    <ClInclude Include="component.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="scene.h" />
