@@ -22,7 +22,7 @@ public:
 	virtual void destroy(void);
 	virtual void start(void);
 	
-	transform getTrans(void);
+	transform* getTrans(void);
 	void setTrans(transform t);
 	bool disabled;
 

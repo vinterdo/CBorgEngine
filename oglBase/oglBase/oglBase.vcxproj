@@ -86,6 +86,7 @@
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="meshRenderer.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="shader.cpp" />
@@ -98,6 +99,7 @@
     <ClInclude Include="component.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="meshRenderer.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="shader.h" />

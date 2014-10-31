@@ -24,8 +24,7 @@ void testGO::start(void)
 								glm::vec3(0,0,0), // and looks at the origin
 								glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
 						   );
-	glm::mat4 Model      = glm::translate(glm::mat4(1.0f), getTrans().getPos());
-	MVP        = Projection * View * Model; 
+	MVP        = Projection * View; 
 
 	vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
 
@@ -38,7 +37,6 @@ void testGO::start(void)
 		-1.0f, -1.0f, 0.0f
 	};
 
-	vertexbuffer;
 	glGenBuffers(1, &vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
@@ -49,17 +47,13 @@ void testGO::draw(void)
 {
 	glUseProgram(programID);
 	
-	glm::mat4 rotationM = glm::rotate(glm::mat4(1.0f), rotation, glm::vec3(1, 0, 0));
-	int rotationID = glGetUniformLocation(programID, "rotationM");
-	glUniformMatrix4fv(rotationID, 1, GL_FALSE, &rotationM[0][0]);
-
 	int colorID = glGetUniformLocation(programID, "cardColor");
 	glUniform3fv(colorID, 1, &color[0]);
 
 	int visID = glGetUniformLocation(programID, "colorVis");
 	glUniform1f(visID, glm::sin((rotation/360.0f)*glm::pi<float>()));
 
-	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &(MVP * getTrans()->getModelMatrix())[0][0]);
 
 	GLint selectionID = glGetUniformLocation(programID, "selected");
 	glUniform1i(selectionID, selected);
@@ -96,4 +90,6 @@ void testGO::update(void)
 	{
 		rotation *= 0.9f;
 	}
+
+	getTrans()->setRotation(glm::quat(glm::vec3(glm::radians(rotation), 0, 0)));
 }

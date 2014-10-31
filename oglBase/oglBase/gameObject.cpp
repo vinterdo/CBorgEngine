@@ -51,9 +51,9 @@ void gameObject::destroy(void)
 	}
 }
 
-transform gameObject::getTrans(void)
+transform* gameObject::getTrans(void)
 {
-	return trans;
+	return &trans;
 }
 
 void gameObject::setTrans(transform t)

@@ -31,6 +31,12 @@
     <Filter Include="Engine\Shaders">
       <UniqueIdentifier>{9336bd1b-29b7-4d39-8c21-d483fbe9f0d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Header Files\Components">
+      <UniqueIdentifier>{b170bf90-f0f8-4d3a-add0-0e7d2ca5973d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files\Components">
+      <UniqueIdentifier>{e3208537-92c9-4f82-9899-b4f04c7e97ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +72,9 @@
     <ClCompile Include="component.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="meshRenderer.cpp">
+      <Filter>Engine\Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -97,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="component.h">
       <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="meshRenderer.h">
+      <Filter>Engine\Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

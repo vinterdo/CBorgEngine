@@ -4,7 +4,7 @@
 int main( void )  
 {  
 	application* app = new application();
-	scene* testScene = new scene();
+	scene* testScene = new testScene1();
 	app->setScene(testScene);
 	app->run();
 } 
