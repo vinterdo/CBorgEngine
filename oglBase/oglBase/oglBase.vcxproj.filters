@@ -75,6 +75,12 @@
     <ClCompile Include="meshRenderer.cpp">
       <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="mesh.cpp">
+      <Filter>Engine\Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="material.cpp">
+      <Filter>Engine\Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -108,6 +114,12 @@
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="meshRenderer.h">
+      <Filter>Engine\Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh.h">
+      <Filter>Engine\Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="material.h">
       <Filter>Engine\Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>

@@ -60,3 +60,13 @@ void gameObject::setTrans(transform t)
 {
 	trans = t;
 }
+
+void gameObject::addComponent(component* c)
+{
+	components.push_back(c);
+}
+
+int gameObject::getComponentCount()
+{
+	return components.size();
+}
