@@ -1,18 +1,12 @@
 #version 120
-uniform int selected;
 uniform vec3 cardColor;
-uniform float colorVis;
 
 void main()
 {
 
 	// Output color = red 
-	if(selected == 0)
-	{
-		gl_FragColor = vec4(cardColor,1) * colorVis + vec4(1,0,1,1) * (1 -colorVis);
-	}
-	else
-	{
-		gl_FragColor =  (vec4(cardColor,1) * colorVis + vec4(1,0,1,1) * (1 -colorVis)) / 2;
-	}
+	
+	gl_FragColor = vec4(cardColor,1);
+	
+	
 }

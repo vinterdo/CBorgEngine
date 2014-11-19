@@ -12,17 +12,9 @@ mesh::~mesh(void)
 }
 
 
-void mesh::beginDraw(void)
+bool mesh::load(std::string path)
 {
-}
-
-void mesh::endDraw(void)
-{
-}
-
-bool mesh::loadObjFile(const char * path)
-{
-	printf("Loading OBJ file %s...\n", path);
+	printf("Loading OBJ file %s...\n", path.c_str());
 
 	std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
 	std::vector<glm::vec3> temp_vertices; 
@@ -30,7 +22,7 @@ bool mesh::loadObjFile(const char * path)
 	std::vector<glm::vec3> temp_normals;
 
 
-	FILE * file = fopen(path, "r");
+	FILE * file = fopen(path.c_str(), "r");
 	if( file == NULL ){
 		printf("Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details\n");
 		getchar();
@@ -84,7 +76,6 @@ bool mesh::loadObjFile(const char * path)
 		}
 
 	}
-
 	// For each vertex of each triangle
 	for( unsigned int i=0; i<vertexIndices.size(); i++ ){
 
@@ -104,22 +95,48 @@ bool mesh::loadObjFile(const char * path)
 		normals .push_back(normal);
 	
 	}
+	printf("loaded");
+	
+	glGenBuffers(1, &vertexbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &uvbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+	glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+
 
 	return true;
 }
 
-void mesh::draw()
+void mesh::passVertices()
 {
-}
-void mesh::start()
-{
-}
-void mesh::update()
-{
-}
-void mesh::fixedUpdate()
-{
-}
-void mesh::destroy()
-{
+	//glEnableVertexAttribArray(vertexPosition_modelspaceID);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+		/*glVertexAttribPointer(
+			vertexPosition_modelspaceID,  // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);*/
+
+		// 2nd attribute buffer : UVs
+		//glEnableVertexAttribArray(vertexUVID);
+		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+		/*glVertexAttribPointer(
+			vertexUVID,                   // The attribute we want to configure
+			2,                            // size : U+V => 2
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);*/
+
+		// Draw the triangles !
+		glDrawArrays(GL_TRIANGLES, 0, vertices.size() );
+
+		//glDisableVertexAttribArray(vertexPosition_modelspaceID);
+		//glDisableVertexAttribArray(vertexUVID);
 }

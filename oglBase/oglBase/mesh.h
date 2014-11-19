@@ -1,28 +1,25 @@
 #pragma once
 #include <glm.hpp>
 #include <vector>
-#include "component.h"
+#include <GL/glew.h>
+#include "asset.h"
 
-class mesh : public component
+class mesh : public asset
 {
 public:
 	mesh(void);
 	~mesh(void);
 
-	void beginDraw();
-	void endDraw();
-
-	virtual void draw(void);
-	virtual void update(void);
-	virtual void fixedUpdate(void);
-	virtual void destroy(void);
-	virtual void start(void);
-
-	bool loadObjFile(const char * path);
+	void passVertices();
+	virtual bool load(std::string path);
 
 private:
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals;
+
+	
+	unsigned int vertexbuffer;
+	unsigned int uvbuffer;
 };
 

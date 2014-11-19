@@ -81,6 +81,9 @@
     <ClCompile Include="material.cpp">
       <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="asset.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="material.h">
       <Filter>Engine\Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="asset.h">
+      <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

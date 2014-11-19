@@ -11,7 +11,6 @@ application::~application(void)
 
 void application::run(void)
 {
-	start();
 	float fixTime = 0;
 	while(running)
 	{

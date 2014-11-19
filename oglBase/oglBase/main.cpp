@@ -1,19 +1,28 @@
 #include <iostream>
 #include "application.h"
 #include "testScene1.h"
+#include "meshRenderer.h"
 #include "mesh.h"
+#include "material.h"
 
 int main( void )  
 {  
 	application* app = new application();
-	scene* testScene = new testScene1();
-	gameObject* go = new gameObject();
-	go->addComponent(new mesh());
-
-
-	mesh* m= go->getComponent<mesh*>();
-	printf("%s",  typeid(m).name());
-
+	app->start();
+	scene* testScene = new scene();
+	
 	app->setScene(testScene);
+
+	gameObject* go = new gameObject();
+	meshRenderer* mr = new meshRenderer();
+	mesh* m = new mesh();
+	m->load("C:/cube.obj");
+	material* mat = new material();
+	mat->load("");
+	mr->setMesh(m);
+	mr->setMat(mat);
+	go->addComponent(mr);
+	testScene->addGO(go);
+
 	app->run();
 } 
