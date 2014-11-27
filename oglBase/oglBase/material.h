@@ -1,5 +1,6 @@
 #pragma once
 #include "asset.h"
+#include "shader.h"
 #include <gl\glew.h>
 class material
 {
@@ -12,7 +13,9 @@ public:
 	void begin();
 	void end();
 
+	void setShader(shader* _sh);
+
 private:
-	GLuint programID;
+	shader* sh;
 };
 

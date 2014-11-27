@@ -93,6 +93,7 @@
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="shader_tmp.cpp" />
     <ClCompile Include="testGO.cpp" />
     <ClCompile Include="testScene1.cpp" />
     <ClCompile Include="transform.cpp" />
@@ -109,13 +110,14 @@
     <ClInclude Include="scene.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="shader_tmp.h" />
     <ClInclude Include="testGO.h" />
     <ClInclude Include="testScene1.h" />
     <ClInclude Include="transform.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SimpleFragmentShader.fragmentshader" />
-    <None Include="SimpleVertexShader.vertexshader" />
+    <None Include="SingleColor.frag" />
+    <None Include="SingleColor.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,5 @@
 #include "material.h"
-#include "shader.h"
+#include "shader_tmp.h"
 #include <glm.hpp>
 
 material::material(void)
@@ -13,18 +13,22 @@ material::~material(void)
 
 bool material::load(std::string path)
 {
-	programID = LoadShaders( "SimpleVertexShader.vertexshader", "SimpleFragmentShader.fragmentshader" );
+	//programID = LoadShaders( "SimpleVertexShader.vertexshader", "SimpleFragmentShader.fragmentshader" );
 	return true;
 }
 
 void material::begin()
 {
-	glUseProgram(programID);
-	int colorID = glGetUniformLocation(programID, "cardColor");
-	glUniform3fv(colorID, 1, &glm::vec3(0,1,0)[0]);
+	sh->setValue("color", glm::vec3(1,0,1));
+	sh->start();
 }
 
 void material::end()
 {
-	glUseProgram(0);
+	sh->end();
+}
+
+void material::setShader(shader* _sh)
+{
+	sh = _sh;
 }
