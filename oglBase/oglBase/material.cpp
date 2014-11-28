@@ -19,7 +19,7 @@ bool material::load(std::string path)
 
 void material::begin()
 {
-	sh->setValue("color", glm::vec3(1,0,1));
+	sh->setValue("color", new glm::vec3(1,0,1));
 	sh->start();
 }
 

@@ -114,3 +114,14 @@ bool shader::load(std::string path)
 	programId = ProgramID;
 
 }
+
+
+int shader::getUniformId(std::string name)
+{
+	return glGetUniformLocation(programId, name.c_str());
+}
+
+int shader::getAttribId(std::string name)
+{
+	return glGetAttribLocation(programId, name.c_str());
+}

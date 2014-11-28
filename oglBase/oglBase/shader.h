@@ -56,6 +56,8 @@ public:
 
 	void start();
 	void end();
+	int getUniformId(std::string name);
+	int getAttribId(std::string name);
 
 	template<class T>
 	void setValue(std::string name, T value)
@@ -63,15 +65,15 @@ public:
 		int location = glGetUniformLocation(programId, name.c_str());
 		if(uniformType<T>::value == uniformEnum::intt)
 		{
-			//glUniform1i(location, int(value));
+			glUniform1i(location, *(int*)(value));
 		}
 		else if(uniformType<T>::value == uniformEnum::floatt)
 		{
-			//glUniform1f(location, float(value));
+			glUniform1f(location, *(float*)(value));
 		}
 		else if(uniformType<T>::value == uniformEnum::vector3t)
 		{
-			//glUniform1i(location, glm::vec3(value));
+			glUniform3fv(location,1, &(*(glm::vec3*)(value))[0]);
 		}
 		else if(uniformType<T>::value == uniformEnum::mat4x4t)
 		{

@@ -1,4 +1,7 @@
 #pragma once
+
+class gameObject;
+
 class component
 {
 public:
@@ -10,5 +13,11 @@ public:
 	virtual void fixedUpdate(void) = 0;
 	virtual void destroy(void) = 0;
 	virtual void start(void) = 0;
+
+	gameObject* getParent();
+	void setParent(gameObject* go);
+
+private:
+	gameObject* parent;
 };
 

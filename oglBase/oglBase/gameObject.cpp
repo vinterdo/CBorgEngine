@@ -63,10 +63,16 @@ void gameObject::setTrans(transform t)
 
 void gameObject::addComponent(component* c)
 {
+	c->setParent(this);
 	components.push_back(c);
 }
 
 int gameObject::getComponentCount()
 {
 	return components.size();
+}
+
+void gameObject::setPosition(glm::vec3 pos)
+{
+	trans.setPos(pos);
 }

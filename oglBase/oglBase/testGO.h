@@ -1,7 +1,9 @@
 #pragma once
 #include "gameobject.h"
 #include "transform.h"
+#include "shader.h"
 #include <gtc/matrix_transform.hpp>
+
 class testGO :
 	public gameObject
 {
@@ -15,18 +17,15 @@ public:
 	virtual void destroy(void);
 	virtual void start(void);
 
-	bool selected;
-	bool flipped;
-
 	glm::vec3 color;
+	shader* sh;
 
 private:
-	GLuint programID;
+	//GLuint programID;
 	GLuint vertexbuffer;
 	GLuint vertexPosition_modelspaceID;
 
 	glm::mat4 MVP;
 	GLuint MatrixID;
-	float rotation;
 };
 

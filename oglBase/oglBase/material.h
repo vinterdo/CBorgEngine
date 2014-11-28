@@ -14,6 +14,11 @@ public:
 	void end();
 
 	void setShader(shader* _sh);
+	template<class T>
+	void setValue(std::string name, T value)
+	{
+		sh->setValue(name, value);
+	}
 
 private:
 	shader* sh;

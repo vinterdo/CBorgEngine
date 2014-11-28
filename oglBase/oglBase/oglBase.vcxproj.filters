@@ -51,9 +51,6 @@
     <ClCompile Include="scene.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testScene1.cpp">
-      <Filter>TestApp1\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gameObject.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
@@ -98,9 +95,6 @@
     <ClInclude Include="scene.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testScene1.h">
-      <Filter>TestApp1\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="gameObject.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
@@ -142,5 +136,6 @@
     <None Include="SingleColor.vert">
       <Filter>Engine\Shaders</Filter>
     </None>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

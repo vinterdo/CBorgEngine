@@ -46,6 +46,7 @@ public:
 	}
 
 	int getComponentCount();
+	void setPosition(glm::vec3);
 
 private:
 	transform trans;

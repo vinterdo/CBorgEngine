@@ -3,9 +3,6 @@
 
 testGO::testGO(void)
 {
-	selected = false;
-	flipped = false;
-	rotation = 0.0f;
 }
 
 
@@ -15,9 +12,12 @@ testGO::~testGO(void)
 
 void testGO::start(void)
 {
-	programID = LoadShaders( "SimpleVertexShader.vertexshader", "SimpleFragmentShader.fragmentshader" );
+	//programID = LoadShaders( "SingleColor.vert", "SingleColor.frag" );
+	sh = new shader();
+	sh->load("SingleColor");
 	
-	MatrixID = glGetUniformLocation(programID, "MVP");
+	//MatrixID = glGetUniformLocation(programID, "MVP");
+	MatrixID = sh->getUniformId("MVP");
 	glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f);
 	glm::mat4 View       = glm::lookAt(
 								glm::vec3(0,0,3), // Camera is at (4,3,3), in World Space
@@ -26,7 +26,8 @@ void testGO::start(void)
 						   );
 	MVP        = Projection * View; 
 
-	vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
+	vertexPosition_modelspaceID = sh->getAttribId("vertexPosition_modelspace");
+	//vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
 
 	static const GLfloat g_vertex_buffer_data[] = { 
 		-1.0f, -1.0f, 0.0f,
@@ -45,18 +46,15 @@ void testGO::start(void)
 
 void testGO::draw(void)
 {
-	glUseProgram(programID);
+	//glUseProgram(programID);
 	
-	int colorID = glGetUniformLocation(programID, "cardColor");
-	glUniform3fv(colorID, 1, &color[0]);
+	//int colorID = glGetUniformLocation(programID, "color");
+	//glUniform3fv(colorID, 1, &color[0]);
 
-	int visID = glGetUniformLocation(programID, "colorVis");
-	glUniform1f(visID, glm::sin((rotation/360.0f)*glm::pi<float>()));
 
+	sh->start();
+	sh->setValue("color", &color);
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &(MVP * getTrans()->getModelMatrix())[0][0]);
-
-	GLint selectionID = glGetUniformLocation(programID, "selected");
-	glUniform1i(selectionID, selected);
 
 	glEnableVertexAttribArray(vertexPosition_modelspaceID);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -81,15 +79,4 @@ void testGO::fixedUpdate(void)
 }
 void testGO::update(void)
 {
-	if(flipped)
-	{
-		if(rotation < 180)
-				rotation += 1;
-	}
-	else
-	{
-		rotation *= 0.9f;
-	}
-
-	getTrans()->setRotation(glm::quat(glm::vec3(glm::radians(rotation), 0, 0)));
 }

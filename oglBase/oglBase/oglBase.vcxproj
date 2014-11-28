@@ -95,7 +95,6 @@
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="shader_tmp.cpp" />
     <ClCompile Include="testGO.cpp" />
-    <ClCompile Include="testScene1.cpp" />
     <ClCompile Include="transform.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -112,10 +111,10 @@
     <ClInclude Include="shader.h" />
     <ClInclude Include="shader_tmp.h" />
     <ClInclude Include="testGO.h" />
-    <ClInclude Include="testScene1.h" />
     <ClInclude Include="transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="SingleColor.frag" />
     <None Include="SingleColor.vert" />
   </ItemGroup>

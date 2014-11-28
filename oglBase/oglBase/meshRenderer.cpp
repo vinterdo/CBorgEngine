@@ -5,13 +5,14 @@ meshRenderer::meshRenderer(void)
 {
 }
 
-
 meshRenderer::~meshRenderer(void)
 {
 }
 
+
 void meshRenderer::draw(void)
 {
+	mat->setValue("MVP", &getParent()->getTrans()->getModelMatrix());
 	mat->begin();
 	m->passVertices();
 	mat->end();
@@ -19,6 +20,7 @@ void meshRenderer::draw(void)
 
 void meshRenderer::start(void)
 {
+	
 }
 
 void meshRenderer::update(void)
