@@ -10,14 +10,16 @@ public:
 	mesh(void);
 	~mesh(void);
 
-	void passVertices();
+	void passVertices(int vertexModelspaceId);
 	virtual bool load(std::string path);
+	int getVertexBufferId();
+	int getUVBufferId();
+	static mesh* loadNew(std::string path);
 
 private:
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals;
-
 	
 	unsigned int vertexbuffer;
 	unsigned int uvbuffer;

@@ -27,22 +27,22 @@ struct uniformType
     static const uniformEnum value = uniformEnum::unknown;
 };
 template<>
-struct uniformType< int >
+struct uniformType< int* >
 {
     static const uniformEnum value = uniformEnum::intt;
 };
 template<>
-struct uniformType< float >
+struct uniformType< float* >
 {
     static const uniformEnum value = uniformEnum::floatt;
 };
 template<>
-struct uniformType< glm::vec3 >
+struct uniformType< glm::vec3* >
 {
 	static const uniformEnum value = uniformEnum::vector3t;
 };
 template<>
-struct uniformType< glm::mat4x4 >
+struct uniformType< glm::mat4* >
 {
 	static const uniformEnum value = uniformEnum::mat4x4t;
 };
@@ -77,11 +77,16 @@ public:
 		}
 		else if(uniformType<T>::value == uniformEnum::mat4x4t)
 		{
-			//glUniform1i(location, glm::mat4x4(value));
+			glUniformMatrix4fv(location, 1, GL_FALSE, &(*(glm::mat4*)(value))[0][0]);
+		}
+		else
+		{
+ 			throw "typeNotAvalible";
 		}
 	}
 
 	virtual bool load(std::string path);
+	static shader* loadNew(std::string path);
 
 private:
 	unsigned int programId;

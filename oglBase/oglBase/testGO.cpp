@@ -12,11 +12,12 @@ testGO::~testGO(void)
 
 void testGO::start(void)
 {
-	//programID = LoadShaders( "SingleColor.vert", "SingleColor.frag" );
 	sh = new shader();
 	sh->load("SingleColor");
+	m = new mesh();
+	m->load("C:/cube.obj");
+	getTrans()->setRotation(glm::quat(glm::vec3(1, 1, 1)));
 	
-	//MatrixID = glGetUniformLocation(programID, "MVP");
 	MatrixID = sh->getUniformId("MVP");
 	glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f);
 	glm::mat4 View       = glm::lookAt(
@@ -27,9 +28,8 @@ void testGO::start(void)
 	MVP        = Projection * View; 
 
 	vertexPosition_modelspaceID = sh->getAttribId("vertexPosition_modelspace");
-	//vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
 
-	static const GLfloat g_vertex_buffer_data[] = { 
+	/*static const GLfloat g_vertex_buffer_data[] = { 
 		-1.0f, -1.0f, 0.0f,
 		 1.0f, -1.0f, 0.0f,
 		 1.0f,  1.0f, 0.0f,
@@ -40,24 +40,19 @@ void testGO::start(void)
 
 	glGenBuffers(1, &vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);*/
 
 }
 
 void testGO::draw(void)
 {
-	//glUseProgram(programID);
-	
-	//int colorID = glGetUniformLocation(programID, "color");
-	//glUniform3fv(colorID, 1, &color[0]);
-
-
 	sh->start();
 	sh->setValue("color", &color);
-	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &(MVP * getTrans()->getModelMatrix())[0][0]);
+	sh->setValue("MVP", &(MVP * getTrans()->getModelMatrix()));
+	//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &(MVP * getTrans()->getModelMatrix())[0][0]);
 
 	glEnableVertexAttribArray(vertexPosition_modelspaceID);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, m->getVertexBufferId());
 	glVertexAttribPointer(
 		vertexPosition_modelspaceID, // The attribute we want to configure
 		3,                  // size

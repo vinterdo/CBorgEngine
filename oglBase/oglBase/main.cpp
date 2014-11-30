@@ -15,21 +15,17 @@ int main( void )
 
 	gameObject* go = new gameObject();
 	go->setPosition(glm::vec3(0,0, -10));
+	go->getTrans()->setRotation(glm::quat(glm::vec3(1, 1, 1)));
+	go->getTrans()->setScale(glm::vec3(2, 1, 4));
 	meshRenderer* mr = new meshRenderer();
-	mesh* m = new mesh();
-	m->load("C:/cube.obj");
+	mesh* m = mesh::loadNew("C:/cube.obj");
 	material* mat = new material();
-	shader* sh = new shader();
-	sh->load("SingleColor");
+	shader* sh = shader::loadNew("SingleColor");
 	mat->setShader(sh);
 	mr->setMesh(m);
 	mr->setMat(mat);
 	go->addComponent(mr);
 	testScene->addGO(go);
-
-	gameObject* test = new testGO();
-	test->setPosition(glm::vec3(5,0,0));
-	testScene->addGO(test);
 
 	app->run();
 } 

@@ -2,6 +2,7 @@
 #include "gameobject.h"
 #include "transform.h"
 #include "shader.h"
+#include "mesh.h"
 #include <gtc/matrix_transform.hpp>
 
 class testGO :
@@ -19,6 +20,7 @@ public:
 
 	glm::vec3 color;
 	shader* sh;
+	mesh* m;
 
 private:
 	//GLuint programID;

@@ -19,6 +19,7 @@ public:
 	{
 		sh->setValue(name, value);
 	}
+	int getVertexModelspaceId();
 
 private:
 	shader* sh;

@@ -32,3 +32,8 @@ void material::setShader(shader* _sh)
 {
 	sh = _sh;
 }
+
+int material::getVertexModelspaceId()
+{
+	return sh->getAttribId("vertexPosition_modelspace");
+}

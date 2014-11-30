@@ -109,10 +109,10 @@ bool mesh::load(std::string path)
 	return true;
 }
 
-void mesh::passVertices()
+void mesh::passVertices(int vertexModelspaceId)
 {
 	//glEnableVertexAttribArray(vertexPosition_modelspaceID);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+		//glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 		/*glVertexAttribPointer(
 			vertexPosition_modelspaceID,  // The attribute we want to configure
 			3,                            // size
@@ -124,19 +124,34 @@ void mesh::passVertices()
 
 		// 2nd attribute buffer : UVs
 		//glEnableVertexAttribArray(vertexUVID);
-		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-		/*glVertexAttribPointer(
-			vertexUVID,                   // The attribute we want to configure
-			2,                            // size : U+V => 2
-			GL_FLOAT,                     // type
-			GL_FALSE,                     // normalized?
-			0,                            // stride
-			(void*)0                      // array buffer offset
-		);*/
+		glEnableVertexAttribArray(vertexModelspaceId);
+		glBindBuffer(GL_ARRAY_BUFFER, getVertexBufferId());
+		glVertexAttribPointer(
+			vertexModelspaceId, // The attribute we want to configure
+			3,                  // size
+			GL_FLOAT,           // type
+			GL_FALSE,           // normalized?
+			0,                  // stride
+			(void*)0            // array buffer offset
+		);
+		glDrawArrays(GL_TRIANGLES, 0, vertices.size()); 
 
-		// Draw the triangles !
-		glDrawArrays(GL_TRIANGLES, 0, vertices.size() );
+		glDisableVertexAttribArray(vertexModelspaceId);
+}
 
-		//glDisableVertexAttribArray(vertexPosition_modelspaceID);
-		//glDisableVertexAttribArray(vertexUVID);
+int mesh::getVertexBufferId()
+{
+	return vertexbuffer;
+}
+
+int mesh::getUVBufferId()
+{
+	return uvbuffer;
+}
+
+mesh* mesh::loadNew(std::string path)
+{
+	mesh* m = new mesh();
+	m->load(path);
+	return m;
 }
