@@ -4,6 +4,7 @@
 #include "meshRenderer.h"
 #include "mesh.h"
 #include "material.h"
+#include "uniformValue.h"
 
 int main( void )  
 {  
@@ -19,6 +20,7 @@ int main( void )
 	mesh* m = mesh::loadNew("cube.obj");
 	material* mat = new material();
 	shader* sh = shader::loadNew("SingleColor");
+	sh->setValue("color", new uniformVector3(glm::vec3(1,0,1)));
 	mat->setShader(sh);
 	mr->setMesh(m);
 	mr->setMat(mat);

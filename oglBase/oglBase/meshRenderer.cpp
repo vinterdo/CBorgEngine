@@ -1,5 +1,5 @@
 #include "meshRenderer.h"
-
+#include "uniformValue.h"
 
 meshRenderer::meshRenderer(void)
 {
@@ -21,7 +21,7 @@ void meshRenderer::draw(void)
 	glm::mat4 MVP        = Projection * View; 
 
 	mat->begin();
-	mat->setValue("MVP", &(MVP * getParent()->getTrans()->getModelMatrix()));
+	mat->setValue("MVP", new uniformMat4(MVP * getParent()->getTrans()->getModelMatrix()));
 	m->passVertices(mat->getVertexModelspaceId());
 	mat->end();
 }

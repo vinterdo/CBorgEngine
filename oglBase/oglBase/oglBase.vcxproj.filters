@@ -16,15 +16,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="TestApp1">
-      <UniqueIdentifier>{f58aeb63-fa02-4d79-a150-9741e754c2c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TestApp1\Header Files">
-      <UniqueIdentifier>{e5aa6afb-563c-4034-aa42-d639d651e2f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TestApp1\Source Files">
-      <UniqueIdentifier>{7447307a-45b3-42a8-bece-305c65a11d7f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Common">
       <UniqueIdentifier>{8508248f-57f2-4368-b064-4b5bb6ce2e75}</UniqueIdentifier>
     </Filter>
@@ -54,9 +45,6 @@
     <ClCompile Include="gameObject.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testGO.cpp">
-      <Filter>TestApp1\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="transform.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
@@ -84,6 +72,9 @@
     <ClCompile Include="shader.cpp">
       <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="uniformValue.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -97,9 +88,6 @@
     </ClInclude>
     <ClInclude Include="gameObject.h">
       <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="testGO.h">
-      <Filter>TestApp1\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="transform.h">
       <Filter>Engine\Header Files</Filter>
@@ -127,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="shader.h">
       <Filter>Engine\Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="uniformValue.h">
+      <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

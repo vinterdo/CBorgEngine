@@ -14,11 +14,12 @@ public:
 	void end();
 
 	void setShader(shader* _sh);
-	template<class T>
-	void setValue(std::string name, T value)
+
+	void setValue(std::string name, uniformValue* value)
 	{
 		sh->setValue(name, value);
 	}
+
 	int getVertexModelspaceId();
 
 private:

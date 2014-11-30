@@ -94,8 +94,8 @@
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="shader_tmp.cpp" />
-    <ClCompile Include="testGO.cpp" />
     <ClCompile Include="transform.cpp" />
+    <ClCompile Include="uniformValue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h" />
@@ -110,8 +110,8 @@
     <ClInclude Include="settings.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="shader_tmp.h" />
-    <ClInclude Include="testGO.h" />
     <ClInclude Include="transform.h" />
+    <ClInclude Include="uniformValue.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

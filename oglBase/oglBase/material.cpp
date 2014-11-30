@@ -13,13 +13,11 @@ material::~material(void)
 
 bool material::load(std::string path)
 {
-	//programID = LoadShaders( "SimpleVertexShader.vertexshader", "SimpleFragmentShader.fragmentshader" );
 	return true;
 }
 
 void material::begin()
 {
-	sh->setValue("color", new glm::vec3(1,0,1));
 	sh->start();
 }
 
