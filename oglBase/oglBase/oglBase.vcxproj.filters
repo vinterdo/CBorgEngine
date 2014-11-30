@@ -82,7 +82,7 @@
       <Filter>Engine\Common</Filter>
     </ClCompile>
     <ClCompile Include="shader.cpp">
-      <Filter>Engine\Source Files</Filter>
+      <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +126,7 @@
       <Filter>Engine\Common</Filter>
     </ClInclude>
     <ClInclude Include="shader.h">
-      <Filter>Engine\Header Files</Filter>
+      <Filter>Engine\Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

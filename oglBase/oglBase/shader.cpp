@@ -125,3 +125,10 @@ int shader::getAttribId(std::string name)
 {
 	return glGetAttribLocation(programId, name.c_str());
 }
+
+shader* shader::loadNew(std::string path)
+{
+	shader* sh = new shader();
+	sh->load(path);
+	return sh;
+}
