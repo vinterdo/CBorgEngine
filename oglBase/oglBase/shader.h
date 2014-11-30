@@ -6,9 +6,9 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <algorithm>
 #include <stdlib.h>
 #include <string>
+#include <map>
 
 #include <GL/glew.h>
 #include <glm.hpp>
@@ -27,7 +27,15 @@ public:
 
 	void setValue(std::string name, uniformValue* value)
 	{
-		value->passValue(name, programId);
+		if(values.find(name.c_str()) == values.end()) // if there is no key in map
+		{
+			values.insert(std::pair<std::string, uniformValue*>(name, value));
+		}
+		else
+		{
+			values[name] = value;
+		}
+		//value->passValue(name, programId);
 	}
 
 	virtual bool load(std::string path);
@@ -35,5 +43,6 @@ public:
 
 private:
 	unsigned int programId;
+	std::map<std::string, uniformValue*> values;
 };
 

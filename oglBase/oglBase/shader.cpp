@@ -13,6 +13,10 @@ shader::~shader(void)
 void shader::start()
 {
 	glUseProgram(programId);
+	for(auto iter = values.begin(); iter != values.end(); ++iter)
+	{
+		iter->second->passValue(iter->first, programId);
+	}
 }
 
 void shader::end()

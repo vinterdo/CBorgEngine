@@ -20,7 +20,7 @@ int main( void )
 	mesh* m = mesh::loadNew("cube.obj");
 	material* mat = new material();
 	shader* sh = shader::loadNew("SingleColor");
-	sh->setValue("color", new uniformVector3(glm::vec3(1,0,1)));
+	sh->setValue("color", new uniformVector3(glm::vec3(1,1,1)));
 	mat->setShader(sh);
 	mr->setMesh(m);
 	mr->setMat(mat);
