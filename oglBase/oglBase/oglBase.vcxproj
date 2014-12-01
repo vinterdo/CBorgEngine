@@ -83,6 +83,7 @@
   <ItemGroup>
     <ClCompile Include="application.cpp" />
     <ClCompile Include="asset.cpp" />
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="component.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="input.cpp" />
@@ -93,13 +94,13 @@
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="shader.cpp" />
-    <ClCompile Include="shader_tmp.cpp" />
     <ClCompile Include="transform.cpp" />
     <ClCompile Include="uniformValue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h" />
     <ClInclude Include="asset.h" />
+    <ClInclude Include="camera.h" />
     <ClInclude Include="component.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="input.h" />
@@ -109,7 +110,6 @@
     <ClInclude Include="scene.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="shader.h" />
-    <ClInclude Include="shader_tmp.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="uniformValue.h" />
   </ItemGroup>

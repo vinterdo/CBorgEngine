@@ -66,13 +66,13 @@
     <ClCompile Include="asset.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="shader_tmp.cpp">
-      <Filter>Engine\Common</Filter>
-    </ClCompile>
     <ClCompile Include="shader.cpp">
       <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="uniformValue.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,13 +110,13 @@
     <ClInclude Include="asset.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="shader_tmp.h">
-      <Filter>Engine\Common</Filter>
-    </ClInclude>
     <ClInclude Include="shader.h">
       <Filter>Engine\Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="uniformValue.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

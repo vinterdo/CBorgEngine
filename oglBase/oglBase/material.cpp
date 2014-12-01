@@ -1,5 +1,4 @@
 #include "material.h"
-#include "shader_tmp.h"
 #include <glm.hpp>
 
 material::material(void)

@@ -12,7 +12,6 @@ scene::~scene(void)
 
 void scene::start()
 {
-
 }
 
 void scene::update()
@@ -35,7 +34,6 @@ void scene::fixedUpdate()
 
 void scene::draw()
 {
-
 	for(int i =0; i < objects.size(); i++)
 	{
 		if(!objects[i]->disabled)
@@ -47,7 +45,6 @@ void scene::destroy()
 {
 	for(int i =0; i < objects.size(); i++)
 	{
-
 		objects[i]->destroy();
 	}
 }

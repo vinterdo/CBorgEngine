@@ -5,6 +5,7 @@
 #include "mesh.h"
 #include "material.h"
 #include "uniformValue.h"
+#include "camera.h"
 
 int main( void )  
 {  
@@ -12,8 +13,8 @@ int main( void )
 	app->start();
 	scene* testScene = new scene();
 	app->setScene(testScene);
+
 	gameObject* go = new gameObject();
-	go->setPosition(glm::vec3(0,0, -10));
 	go->getTrans()->setRotation(glm::quat(glm::vec3(1, 1, 1)));
 	go->getTrans()->setScale(glm::vec3(2, 1, 4));
 	meshRenderer* mr = new meshRenderer();
@@ -26,6 +27,15 @@ int main( void )
 	mr->setMat(mat);
 	go->addComponent(mr);
 	testScene->addGO(go);
+
+	gameObject* camGo = new gameObject();
+	camGo->getTrans()->setPos(glm::vec3(0,0,9));
+	camera* cam = new camera();
+	camGo->addComponent(cam);
+	//cam->setProjectionOrtho(-10, 10, -10, 10);
+	cam->setProjectionPerspective(60, 100,90, 0, 1000);
+	cam->setViewLookAt(glm::vec3(0,0,0), glm::vec3(0,1,0)); 
+	testScene->addGO(camGo);
 
 	app->run();
 } 
