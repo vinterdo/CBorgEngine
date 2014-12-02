@@ -73,7 +73,13 @@
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="camera.cpp">
+      <Filter>Engine\Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="tex2d.cpp">
       <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="simple2DCamMove.cpp">
+      <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +122,13 @@
     <ClInclude Include="uniformValue.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="simple2DCamMove.h">
+      <Filter>Engine\Header Files\Components</Filter>
+    </ClInclude>
     <ClInclude Include="camera.h">
+      <Filter>Engine\Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="tex2d.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

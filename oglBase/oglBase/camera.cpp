@@ -1,5 +1,4 @@
 #include "camera.h"
-
 camera* camera::mainCamera = NULL;
 
 camera::camera(void)
@@ -13,6 +12,7 @@ camera::camera(void)
 
 camera::~camera(void)
 {
+	setViewLookAt(glm::vec3(0,0,0), glm::vec3(0,1,0)); 
 }
 
 void camera::draw(void)
@@ -45,17 +45,17 @@ void camera::setProjection(glm::mat4 proj)
 }
 
 void camera::setViewLookAt(glm::vec3 target, glm::vec3 up)
-{
-	view = glm::lookAt(getParent()->getTrans()->getPos(), target, up);
+{	
+	//view = glm::lookAt(getParent()->getTrans()->getPos(), target, up);
 }
 void camera::setView(glm::mat4 v)
 {
-	view = v;
+	//view = v;
 }
 
 glm::mat4 camera::getProjView()
 {
-	return projection * view;
+	return getProj() * getView() ;
 }
 glm::mat4 camera::getProj()
 {
@@ -63,6 +63,7 @@ glm::mat4 camera::getProj()
 }
 glm::mat4 camera::getView()
 {
-	return view;
+	return glm::lookAt(getParent()->getTrans()->getPos(), getParent()->getTrans()->getPos() + glm::rotate(getParent()->getTrans()->getRotation(),glm::vec3(0,0,-1)), glm::vec3(0,1,0));
+	//return view;
 }
 

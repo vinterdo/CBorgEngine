@@ -6,6 +6,7 @@
 #include "material.h"
 #include "uniformValue.h"
 #include "camera.h"
+#include "simple2DCamMove.h"
 
 int main( void )  
 {  
@@ -34,6 +35,8 @@ int main( void )
 	camGo->addComponent(cam);
 	//cam->setProjectionOrtho(-10, 10, -10, 10);
 	cam->setProjectionPerspective(60, 100,90, 0, 1000);
+	simple2DCamMove* move = new simple2DCamMove();
+	camGo->addComponent(move);
 	cam->setViewLookAt(glm::vec3(0,0,0), glm::vec3(0,1,0)); 
 	testScene->addGO(camGo);
 

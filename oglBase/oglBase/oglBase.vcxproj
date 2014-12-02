@@ -94,6 +94,8 @@
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="simple2DCamMove.cpp" />
+    <ClCompile Include="tex2d.cpp" />
     <ClCompile Include="transform.cpp" />
     <ClCompile Include="uniformValue.cpp" />
   </ItemGroup>
@@ -110,6 +112,8 @@
     <ClInclude Include="scene.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="simple2DCamMove.h" />
+    <ClInclude Include="tex2d.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="uniformValue.h" />
   </ItemGroup>
