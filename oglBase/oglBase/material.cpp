@@ -34,3 +34,8 @@ int material::getVertexModelspaceId()
 {
 	return sh->getAttribId("vertexPosition_modelspace");
 }
+
+int material::getVertexUvId()
+{
+	return sh->getAttribId("vertexUV");
+}

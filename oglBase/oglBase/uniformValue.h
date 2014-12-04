@@ -3,7 +3,7 @@
 #include <string>
 #include <GL/glew.h>
 #include <glm.hpp>
-
+#include "tex2d.h"
 
 class uniformValue
 {
@@ -78,3 +78,20 @@ public:
 	}
 };
 
+class uniformTex2d : public uniformValue
+{
+public:
+	uniformTex2d(tex2d* x)
+	{
+		value = x;
+	}
+
+	tex2d* value;
+	virtual void passValue(std::string name, int programId)
+	{
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, value->getId());
+		int location = glGetUniformLocation(programId, name.c_str());
+		glUniform1f(location, 0);
+	}
+};

@@ -75,10 +75,10 @@
     <ClCompile Include="camera.cpp">
       <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="tex2d.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="simple2DCamMove.cpp">
+      <Filter>Engine\Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="tex2d.cpp">
       <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -129,7 +129,7 @@
       <Filter>Engine\Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="tex2d.h">
-      <Filter>Engine\Header Files</Filter>
+      <Filter>Engine\Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -140,5 +140,11 @@
       <Filter>Engine\Shaders</Filter>
     </None>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Diffuse.frag">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="Diffuse.vert">
+      <Filter>Engine\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

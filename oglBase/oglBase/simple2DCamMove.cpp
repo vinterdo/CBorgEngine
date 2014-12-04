@@ -50,16 +50,20 @@ void simple2DCamMove::fixedUpdate(void)
 
 	if(input::isKeyPressed(GLFW_KEY_RIGHT))
 	{
-		glm::vec3 angles = glm::eulerAngles(getParent()->getTrans()->getRotation());
-		angles.x += speed;
-		getParent()->getTrans()->setRotation(glm::quat(angles));
+		getParent()->getTrans()->setRotation(getParent()->getTrans()->getRotation() * glm::quat(glm::vec3(0, -speed,0)));
 	}
 	if(input::isKeyPressed(GLFW_KEY_LEFT))
 	{
-		
-		glm::vec3 angles = glm::eulerAngles(getParent()->getTrans()->getRotation());
-		angles.x -= speed;
-		getParent()->getTrans()->setRotation(glm::quat(angles));
+		getParent()->getTrans()->setRotation(getParent()->getTrans()->getRotation() * glm::quat(glm::vec3(0, speed,0)));
+	}
+
+	if(input::isKeyPressed(GLFW_KEY_UP))
+	{
+		getParent()->getTrans()->setRotation(getParent()->getTrans()->getRotation() * glm::quat(glm::vec3(-speed, 0,0)));
+	}
+	if(input::isKeyPressed(GLFW_KEY_DOWN))
+	{
+		getParent()->getTrans()->setRotation(getParent()->getTrans()->getRotation() * glm::quat(glm::vec3(speed, 0,0)));
 	}
 }
 void simple2DCamMove::destroy(void)

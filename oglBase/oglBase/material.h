@@ -21,6 +21,7 @@ public:
 	}
 
 	int getVertexModelspaceId();
+	int getVertexUvId();
 
 private:
 	shader* sh;
