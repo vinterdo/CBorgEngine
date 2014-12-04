@@ -22,6 +22,7 @@ public:
 
 	int getVertexModelspaceId();
 	int getVertexUvId();
+	int getNormalsId();
 
 private:
 	shader* sh;

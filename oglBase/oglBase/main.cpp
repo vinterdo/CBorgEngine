@@ -16,21 +16,25 @@ int main( void )
 	scene* testScene = new scene();
 	app->setScene(testScene);
 
-	gameObject* go = new gameObject();
-	go->getTrans()->setRotation(glm::quat(glm::vec3(1, 1, 1)));
-	go->getTrans()->setScale(glm::vec3(0.1, 0.1, 0.1));
-	meshRenderer* mr = new meshRenderer();
-	mesh* m = mesh::loadNew("spider.obj");
 	material* mat = new material();
 	shader* sh = shader::loadNew("Diffuse");
 	tex2d* tex = new tex2d();
 	tex->load("rock_tex.jpg");
 	sh->setValue("mainTex", new uniformTex2d(tex));
 	mat->setShader(sh);
-	mr->setMesh(m);
-	mr->setMat(mat);
-	go->addComponent(mr);
-	testScene->addGO(go);
+
+	for(int i =0; i<=18; i++)
+	{
+		gameObject* go = new gameObject();
+		go->getTrans()->setRotation(glm::quat(glm::vec3(1, 1, 1)));
+		go->getTrans()->setScale(glm::vec3(0.1, 0.1, 0.1));
+		meshRenderer* mr = new meshRenderer();
+		mesh* m = mesh::loadNew("spider.obj", i);
+		mr->setMesh(m);
+		mr->setMat(mat);
+		go->addComponent(mr);
+		testScene->addGO(go);
+	}
 
 	gameObject* camGo = new gameObject();
 	camGo->getTrans()->setPos(glm::vec3(0,0,9));

@@ -39,3 +39,8 @@ int material::getVertexUvId()
 {
 	return sh->getAttribId("vertexUV");
 }
+
+int material::getNormalsId()
+{
+	return sh->getAttribId("normals");
+}
