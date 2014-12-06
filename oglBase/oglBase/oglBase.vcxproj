@@ -88,10 +88,12 @@
     <ClCompile Include="component.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="input.cpp" />
+    <ClCompile Include="light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="material.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="meshRenderer.cpp" />
+    <ClCompile Include="pointLight.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="shader.cpp" />
@@ -107,9 +109,11 @@
     <ClInclude Include="component.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="light.h" />
     <ClInclude Include="material.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="meshRenderer.h" />
+    <ClInclude Include="pointLight.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="shader.h" />
@@ -119,6 +123,8 @@
     <ClInclude Include="uniformValue.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BlinnPhong.frag" />
+    <None Include="BlinnPhong.vert" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Diffuse.frag" />
     <None Include="Diffuse.vert" />

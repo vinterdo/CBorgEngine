@@ -81,6 +81,12 @@
     <ClCompile Include="tex2d.cpp">
       <Filter>Engine\Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="light.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pointLight.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -131,6 +137,12 @@
     <ClInclude Include="tex2d.h">
       <Filter>Engine\Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="light.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pointLight.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SingleColor.frag">
@@ -144,6 +156,12 @@
       <Filter>Engine\Shaders</Filter>
     </None>
     <None Include="Diffuse.vert">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="BlinnPhong.frag">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="BlinnPhong.vert">
       <Filter>Engine\Shaders</Filter>
     </None>
   </ItemGroup>

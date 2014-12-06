@@ -14,6 +14,9 @@ meshRenderer::~meshRenderer(void)
 void meshRenderer::draw(void)
 {
 	mat->begin();
+	mat->setValue("M", new uniformMat4(getParent()->getTrans()->getModelMatrix()));
+	mat->setValue("V", new uniformMat4(camera::mainCamera->getView()));
+	mat->setValue("P", new uniformMat4(camera::mainCamera->getProj()));
 	mat->setValue("MVP", new uniformMat4(camera::mainCamera->getProjView() * getParent()->getTrans()->getModelMatrix()));
 	m->passVertices(mat->getVertexModelspaceId(), mat->getVertexUvId(), mat->getNormalsId());
 	mat->end();
