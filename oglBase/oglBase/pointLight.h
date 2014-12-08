@@ -6,5 +6,6 @@ class pointLight :
 public:
 	pointLight(void);
 	~pointLight(void);
+
 };
 
