@@ -10,6 +10,7 @@
 #include "tex2d.h"
 #include "pointLight.h"
 #include "BubbleGenerator.h"
+#include "playerLogic.h"
 
 void GenerateBoxes(scene* testScene, glm::vec3 pos, glm::vec3 scale)
 {
@@ -59,6 +60,8 @@ int main( void )
 	mr->setMesh(m);
 	mr->setMat(mat);
 	player->addComponent(mr);
+	playerLogic* pl = new playerLogic();
+	player->addComponent(pl);
 	player->getTrans()->setRotation(glm::quat(glm::vec3(0.0,1.57,1.57)));
 	player->getTrans()->setScale(glm::vec3(0.005,0.005,0.005));
 	testScene->addGO(player);

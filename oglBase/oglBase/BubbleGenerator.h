@@ -33,10 +33,11 @@ public:
 		
 		gameObject* go = new gameObject();
 		go->getTrans()->setPos(glm::vec3(rand() % 30 - 15, -12, 1));
+		go->getTrans()->setScale(glm::vec3(0.5, 0.5, 0.5));
 		bubbleLogic* bl = new bubbleLogic();
-		bl->bonus = rand() % 4;
+		bl->bonus = rand() % 3;
 		material* mat = new material();
-		if(bl->bonus)
+		if(!(bl->bonus))
 		{
 			pointLight* pl = new pointLight(glm::vec3(0.1, 0.1, 0.9), 20);
 			go->addComponent(pl);
