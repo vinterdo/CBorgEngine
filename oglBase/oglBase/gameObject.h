@@ -10,6 +10,8 @@
 #include "transform.h"
 #include "component.h"
 #include <string>
+#include "scene.h"
+class scene;
 
 class gameObject
 {
@@ -48,8 +50,20 @@ public:
 	int getComponentCount();
 	void setPosition(glm::vec3);
 
+	scene* getParentScene()
+	{
+		return parentScene;
+	}
+
+
+	void setParentScene(scene* s)
+	{
+		parentScene = s;
+	}
+
 private:
 	transform trans;
+	scene* parentScene;
 	std::vector<component*> components;
 };
 

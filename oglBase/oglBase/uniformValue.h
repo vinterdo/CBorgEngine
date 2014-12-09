@@ -92,6 +92,6 @@ public:
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, value->getId());
 		int location = glGetUniformLocation(programId, name.c_str());
-		glUniform1f(location, 0);
+		glUniform1i(location, 0);
 	}
 };

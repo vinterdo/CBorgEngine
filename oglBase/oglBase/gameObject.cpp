@@ -49,6 +49,8 @@ void gameObject::destroy(void)
 	{
 		components[i]->destroy();
 	}
+
+	parentScene->removeGO(this);
 }
 
 transform* gameObject::getTrans(void)

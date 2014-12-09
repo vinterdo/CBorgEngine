@@ -51,8 +51,22 @@ void scene::destroy()
 
 void scene::addGO(gameObject* GO)
 {
+	GO->setParentScene(this);
 	objects.push_back(GO);
 	GO->start();
+}
+
+void scene::removeGO(gameObject* GO)
+{
+	for(int i=0; i < objects.size(); i++)
+	{
+		if(objects[i] == GO)
+		{
+			objects.erase(objects.begin() + i);
+			break;
+		}
+	}
+
 }
 
 //============================================

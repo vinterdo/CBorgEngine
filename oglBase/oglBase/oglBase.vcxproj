@@ -84,6 +84,8 @@
   <ItemGroup>
     <ClCompile Include="application.cpp" />
     <ClCompile Include="asset.cpp" />
+    <ClCompile Include="bubbleGenerator.cpp" />
+    <ClCompile Include="bubbleLogic.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="component.cpp" />
     <ClCompile Include="gameObject.cpp" />
@@ -93,6 +95,7 @@
     <ClCompile Include="material.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="meshRenderer.cpp" />
+    <ClCompile Include="playerLogic.cpp" />
     <ClCompile Include="pointLight.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="settings.cpp" />
@@ -105,6 +108,8 @@
   <ItemGroup>
     <ClInclude Include="application.h" />
     <ClInclude Include="asset.h" />
+    <ClInclude Include="bubbleGenerator.h" />
+    <ClInclude Include="bubbleLogic.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="component.h" />
     <ClInclude Include="gameObject.h" />
@@ -113,6 +118,7 @@
     <ClInclude Include="material.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="meshRenderer.h" />
+    <ClInclude Include="playerLogic.h" />
     <ClInclude Include="pointLight.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="settings.h" />

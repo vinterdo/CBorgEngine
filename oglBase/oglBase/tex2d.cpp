@@ -4,6 +4,7 @@
 
 tex2d::tex2d(void)
 {
+	texId = 0;
 }
 
 

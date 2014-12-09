@@ -44,3 +44,8 @@ int material::getNormalsId()
 {
 	return sh->getAttribId("normals");
 }
+
+shader* material::getShader()
+{
+	return sh;
+}

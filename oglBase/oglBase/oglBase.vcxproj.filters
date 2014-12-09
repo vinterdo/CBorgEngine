@@ -87,6 +87,15 @@
     <ClCompile Include="pointLight.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bubbleGenerator.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bubbleLogic.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="playerLogic.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -141,6 +150,15 @@
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pointLight.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bubbleGenerator.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bubbleLogic.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="playerLogic.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

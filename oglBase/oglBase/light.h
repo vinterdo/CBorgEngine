@@ -9,13 +9,26 @@ class light :
 	public component
 {
 public:
-	light(void);
+	light(glm::vec3 color, float power);
 	~light(void);
+
+	float getPower();
+	glm::vec3 getColor();
+	glm::vec3 getPos();
+
+	void setPower(float);
+	void setColor(glm::vec3);
+
+	virtual void draw(void);
+	virtual void update(void);
+	virtual void fixedUpdate(void);
+	virtual void destroy(void);
+	virtual void start(void);
 
 private:
 	glm::vec3 color;
 	float power;
 
-	std::vector<light*> lightList;
+	static std::vector<light*> lightList;
 };
 
