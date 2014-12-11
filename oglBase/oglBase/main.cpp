@@ -67,6 +67,8 @@ void SetupBubbleGame(scene* testScene)
 	mesh* m = mesh::loadNew("chark.3ds", 2);
 	mr->setMesh(m);
 	mr->setMat(mat);
+	pointLight* playerLight = new pointLight(glm::vec3(1,1,0), 20);
+	player->addComponent(playerLight);
 	player->addComponent(mr);
 	playerLogic* pl = new playerLogic(playerCamGO, camGo);
 	player->addComponent(pl);

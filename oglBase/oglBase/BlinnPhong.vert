@@ -1,5 +1,5 @@
 #version 120
-#define MAXLIGHTS 25
+#define MAXLIGHTS 12
 
 attribute vec3 vertexPosition_modelspace;
 attribute vec2 vertexUV;

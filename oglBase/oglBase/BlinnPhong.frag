@@ -1,5 +1,5 @@
 #version 120
-#define MAXLIGHTS 25
+#define MAXLIGHTS 12
 
 // Interpolated values from the vertex shaders
 varying vec2 UV;
@@ -21,8 +21,8 @@ void main()
 	mat4 MV = M * V;
 	
 	vec3 MaterialDiffuseColor = texture2D( mainTex, UV ).rgb;
-	vec3 MaterialAmbientColor = vec3(0.4,0.4,0.4) * MaterialDiffuseColor;
-	vec3 MaterialSpecularColor = vec3(0.8,0.1,0.1);
+	vec3 MaterialAmbientColor = vec3(0.3,0.3,0.6) * MaterialDiffuseColor;
+	vec3 MaterialSpecularColor = vec3(1,1,1);
 	
 	gl_FragColor.rgb = MaterialAmbientColor;
 
