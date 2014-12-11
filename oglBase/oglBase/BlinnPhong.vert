@@ -1,6 +1,5 @@
 #version 120
-#pragma optionNV(unroll all)
-#define MAXLIGHTS 16
+#define MAXLIGHTS 25
 
 attribute vec3 vertexPosition_modelspace;
 attribute vec2 vertexUV;

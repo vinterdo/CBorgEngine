@@ -1,8 +1,9 @@
 #include "bubbleLogic.h"
 
 
-bubbleLogic::bubbleLogic(void)
+bubbleLogic::bubbleLogic(gameObject* _player)
 {
+	player = _player;
 }
 
 

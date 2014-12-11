@@ -88,6 +88,7 @@
     <ClCompile Include="bubbleLogic.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="component.cpp" />
+    <ClCompile Include="directionalLight.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="light.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="bubbleLogic.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="component.h" />
+    <ClInclude Include="directionalLight.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="light.h" />

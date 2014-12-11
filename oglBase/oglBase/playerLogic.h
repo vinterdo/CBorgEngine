@@ -6,16 +6,22 @@
 #include "tex2d.h"
 #include "mesh.h"
 #include "meshRenderer.h"
-#include "bubbleLogic.h"
 #include "pointLight.h"
 #include "input.h"
+#include "camera.h"
 class playerLogic : public component
 {
 public:
-	playerLogic(void);
+	playerLogic(gameObject* _tpCam, gameObject* _sideCam);
 	~playerLogic(void);
 
 	float speed;
+	gameObject* tpCam;
+	gameObject* sideCam;
+
+	bool camMode; // false for tp, true for side
+
+	static int points;
 
 	virtual void draw(void)
 	{
@@ -45,7 +51,22 @@ public:
 			pos += glm::vec3(-speed, 0, 0);
 		}
 
+		if(input::isKeyDown(GLFW_KEY_TAB))
+		{
+			if(camMode)
+			{
+				camera::mainCamera = sideCam->getComponent<camera*>();
+				camMode = false;
+			}
+			else
+			{
+				camera::mainCamera = tpCam->getComponent<camera*>();
+				camMode = true;
+			}
+		}
+
 		getParent()->getTrans()->setPos(pos);
+		tpCam->getTrans()->setPos(pos - glm::vec3(2, -1, 0));
 	}
 	virtual void destroy(void)
 	{

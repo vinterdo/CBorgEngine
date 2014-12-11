@@ -31,22 +31,30 @@ void GenerateBoxes(scene* testScene, glm::vec3 pos, glm::vec3 scale)
 	testScene->addGO(backPlane);
 }
 
-int main( void )  
-{  
-	application* app = new application();
-	app->start();
-	scene* testScene = new scene();
-	app->setScene(testScene);
-
-	GenerateBoxes(testScene, glm::vec3(0,0,-10), glm::vec3(20,10,1));
+void SetupBubbleGame(scene* testScene)
+{
+	GenerateBoxes(testScene, glm::vec3(0,0,-5), glm::vec3(20,10,1));
 	GenerateBoxes(testScene, glm::vec3(0,10,0), glm::vec3(20,1,10));
 	GenerateBoxes(testScene, glm::vec3(0,-10,0), glm::vec3(20,1,10));
 	GenerateBoxes(testScene, glm::vec3(-20,0,0), glm::vec3(1,10,10));
 	GenerateBoxes(testScene, glm::vec3(20,0,0), glm::vec3(1,10,10));
 
-	gameObject* bubbleGen = new gameObject();
-	bubbleGen->addComponent(new bubbleGenerator());
-	testScene->addGO(bubbleGen);
+
+	gameObject* playerCamGO = new gameObject();
+	camera* playerCam = new camera();
+	playerCam->setProjectionPerspective(45, 4,3, 0.1, 500);
+	playerCamGO->addComponent(playerCam);
+	playerCamGO->getTrans()->setRotation(glm::quat(glm::vec3(0.0,-1.57,0.0)));
+	testScene->addGO(playerCamGO);
+
+	gameObject* camGo = new gameObject();
+	camGo->getTrans()->setPos(glm::vec3(0,0,35));
+	camera* cam = new camera();
+	camGo->addComponent(cam);
+	//simple2DCamMove* move = new simple2DCamMove();
+	//camGo->addComponent(move);
+	cam->setProjectionPerspective(45, 4,3, 0.1, 500);
+	testScene->addGO(camGo);
 
 	gameObject* player = new gameObject();
 	material* mat = new material();
@@ -60,25 +68,25 @@ int main( void )
 	mr->setMesh(m);
 	mr->setMat(mat);
 	player->addComponent(mr);
-	playerLogic* pl = new playerLogic();
+	playerLogic* pl = new playerLogic(playerCamGO, camGo);
 	player->addComponent(pl);
 	player->getTrans()->setRotation(glm::quat(glm::vec3(0.0,1.57,1.57)));
 	player->getTrans()->setScale(glm::vec3(0.005,0.005,0.005));
 	testScene->addGO(player);
 
+	gameObject* bubbleGen = new gameObject();
+	bubbleGen->addComponent(new bubbleGenerator(player));
+	testScene->addGO(bubbleGen);
+}
 
-	gameObject* camGo = new gameObject();
-	camGo->getTrans()->setPos(glm::vec3(0,0,35));
-	camera* cam = new camera();
-	camGo->addComponent(cam);
-	//simple2DCamMove* move = new simple2DCamMove();
-	//camGo->addComponent(move);
-	cam->setProjectionPerspective(45, 4,3, 0.1, 500);
+int main( void )  
+{  
+	application* app = new application();
+	app->start();
+	scene* testScene = new scene();
+	app->setScene(testScene);
 
-	pointLight* plight = new pointLight(glm::vec3(0.5,0.5,0.5), 50);
-	camGo->addComponent(plight);
-
-	testScene->addGO(camGo);
+	SetupBubbleGame(testScene);
 
 	app->run();
 } 

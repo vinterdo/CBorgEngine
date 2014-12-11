@@ -6,14 +6,20 @@
 #include "tex2d.h"
 #include "mesh.h"
 #include "meshRenderer.h"
+#include "playerLogic.h"
+
 class bubbleLogic :
 	public component
 {
 public:
-	bubbleLogic(void);
+	bubbleLogic(gameObject* _player);
 	~bubbleLogic(void);
 
 	bool bonus;
+	gameObject* player;
+
+
+	float speed;
 
 	virtual void draw(void)
 	{
@@ -31,9 +37,25 @@ public:
 			getParent()->destroy();
 		}
 
-		pos.y += 0.05;
+		pos.y += speed;
 
 		getParent()->getTrans()->setPos(pos);
+
+		if(glm::distance(pos, player->getTrans()->getPos()) < 2)
+		{
+			getParent()->getTrans()->setPos(glm::vec3(0, 100, 0));
+
+			if(!bonus)
+			{
+				player->getComponent<playerLogic*>()->points += 10;
+				printf("%i\n", player->getComponent<playerLogic*>()->points);
+			}
+			else
+			{
+				player->getComponent<playerLogic*>()->points = 0;
+				printf("%i\n", player->getComponent<playerLogic*>()->points);
+			}
+		}
 	}
 	virtual void destroy(void)
 	{
@@ -44,4 +66,3 @@ public:
 
 	}
 };
-

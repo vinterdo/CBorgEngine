@@ -96,6 +96,9 @@
     <ClCompile Include="playerLogic.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="directionalLight.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h">
@@ -159,6 +162,9 @@
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="playerLogic.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="directionalLight.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
