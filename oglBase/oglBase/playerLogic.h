@@ -22,6 +22,7 @@ public:
 	bool camMode; // false for tp, true for side
 
 	static int points;
+	int fov;
 
 	virtual void draw(void)
 	{
@@ -65,6 +66,19 @@ public:
 			}
 		}
 
+		if(input::isKeyPressed(GLFW_KEY_Z) && fov > 30)
+		{
+			fov--;
+			tpCam->getComponent<camera*>()->setProjectionPerspective(fov, 4,3, 0.1, 500);
+			sideCam->getComponent<camera*>()->setProjectionPerspective(fov, 4,3, 0.1, 500);
+		}
+		if(input::isKeyPressed(GLFW_KEY_X) && fov < 60)
+		{
+			fov++;
+			tpCam->getComponent<camera*>()->setProjectionPerspective(fov, 4,3, 0.1, 500);
+			sideCam->getComponent<camera*>()->setProjectionPerspective(fov, 4,3, 0.1, 500);
+		}
+
 		getParent()->getTrans()->setPos(pos);
 		tpCam->getTrans()->setPos(pos - glm::vec3(2, -1, 0));
 	}
@@ -75,6 +89,7 @@ public:
 	virtual void start(void)
 	{
 		speed = 0.05;
+		fov = 45;
 	}
 };
 
