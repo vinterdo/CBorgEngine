@@ -30,7 +30,7 @@ public:
 	}
 	virtual void fixedUpdate(void)
 	{
-		glm::vec3 pos = getParent()->getTrans()->getPos();
+		glm::vec3 pos = getParent()->getTrans()->getPos(); 
 
 		if(pos.y > 15)
 		{
