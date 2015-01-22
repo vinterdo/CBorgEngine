@@ -23,9 +23,6 @@ public:
 	void setProjectionPerspective(float fov, float width, float height, float near, float far);
 	void setProjection(glm::mat4);
 
-	void setViewLookAt(glm::vec3 target, glm::vec3 up);
-	void setView(glm::mat4);
-
 	glm::mat4 getProjView();
 	glm::mat4 getProj();
 	glm::mat4 getView();

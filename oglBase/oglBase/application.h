@@ -26,7 +26,12 @@ public:
 	void destroy(void);
 	void stop(void);
 
+	static float getFPS();
 
+	void setSettings(settings set)
+	{
+		currentSettings = set;
+	}
 	void setScene(scene* s);
 
 private:
@@ -35,7 +40,8 @@ private:
 	settings currentSettings;
 
 	clock_t time, newTime, dt;
-	float FPS, FPSTime;
+	float FPSTime;
+	static float FPS;
 	unsigned frames;
 
 	scene* currentScene;

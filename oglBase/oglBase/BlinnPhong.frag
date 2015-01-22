@@ -21,7 +21,7 @@ void main()
 	mat4 MV = M * V;
 	
 	vec3 MaterialDiffuseColor = texture2D( mainTex, UV ).rgb;
-	vec3 MaterialAmbientColor = vec3(0.3,0.3,0.6) * MaterialDiffuseColor;
+	vec3 MaterialAmbientColor = vec3(0.1,0.1,0.1) * MaterialDiffuseColor;
 	vec3 MaterialSpecularColor = vec3(1,1,1);
 	
 	gl_FragColor.rgb = MaterialAmbientColor;

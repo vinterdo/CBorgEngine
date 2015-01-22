@@ -1,6 +1,7 @@
 #include "tex2d.h"
-#include <windows.h>
 #include <SOIL.h>
+#include <GL/glew.h>  
+#include <GLFW/glfw3.h>  
 
 tex2d::tex2d(void)
 {
@@ -34,4 +35,20 @@ bool tex2d::load(std::string path)
 int tex2d::getId()
 {
 	return texId;
+}
+
+int tex2d::getSizeX()
+{
+	int w;
+	glBindTexture(GL_TEXTURE_2D, texId);
+	glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &w);
+	return w;
+}
+
+int tex2d::getSizeY()
+{
+	int h;
+	glBindTexture(GL_TEXTURE_2D, texId);
+	glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &h);
+	return h;
 }

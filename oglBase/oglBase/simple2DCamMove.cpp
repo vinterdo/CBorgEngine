@@ -4,7 +4,7 @@
 
 simple2DCamMove::simple2DCamMove(void)
 {
-	speed = 0.07;
+	speed = 0.7;
 }
 
 

@@ -87,16 +87,25 @@
     <ClCompile Include="pointLight.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bubbleGenerator.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bubbleLogic.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="playerLogic.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="directionalLight.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="helper.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="terrainSpherical.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spherePrimitive.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="orbitCamera.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lodManager.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -155,16 +164,25 @@
     <ClInclude Include="pointLight.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bubbleGenerator.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bubbleLogic.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="playerLogic.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="directionalLight.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helper.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="terrainSpherical.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spherePrimitive.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="orbitCamera.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lodManager.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -186,6 +204,18 @@
       <Filter>Engine\Shaders</Filter>
     </None>
     <None Include="BlinnPhong.vert">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="TerrainHeightShader.frag">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="TerrainHeightShader.vert">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="TerrainSpherical.frag">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="TerrainSpherical.vert">
       <Filter>Engine\Shaders</Filter>
     </None>
   </ItemGroup>

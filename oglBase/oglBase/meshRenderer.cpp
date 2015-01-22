@@ -16,9 +16,12 @@ void meshRenderer::draw(void)
 {
 	mat->begin();
 	mat->setValue("M", new uniformMat4(getParent()->getTrans()->getModelMatrix()));
-	mat->setValue("V", new uniformMat4(camera::mainCamera->getView()));
-	mat->setValue("P", new uniformMat4(camera::mainCamera->getProj()));
-	mat->setValue("MVP", new uniformMat4(camera::mainCamera->getProjView() * getParent()->getTrans()->getModelMatrix()));
+	if(camera::mainCamera != NULL)
+	{
+		mat->setValue("V", new uniformMat4(camera::mainCamera->getView()));
+		mat->setValue("P", new uniformMat4(camera::mainCamera->getProj()));
+		mat->setValue("MVP", new uniformMat4(camera::mainCamera->getProjView() * getParent()->getTrans()->getModelMatrix()));
+	}
 	pointLight::passPointLights(mat->getShader()->getUniformId("pointLPos"), mat->getShader()->getUniformId("pointLCol"), mat->getShader()->getUniformId("pointLPow"));
 	m->passVertices(mat->getVertexModelspaceId(), mat->getVertexUvId(), mat->getNormalsId());
 	mat->end();

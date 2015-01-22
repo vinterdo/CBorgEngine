@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include "application.h"
 #include "testGO.h"
@@ -11,84 +12,70 @@
 #include "pointLight.h"
 #include "BubbleGenerator.h"
 #include "playerLogic.h"
-
-void GenerateBoxes(scene* testScene, glm::vec3 pos, glm::vec3 scale)
-{
-	material* mat = new material();
-	shader* sh = shader::loadNew("BlinnPhong");
-	tex2d* tex = new tex2d();
-	tex->load("rock_tex.jpg");
-	sh->setValue("mainTex", new uniformTex2d(tex));
-	mat->setShader(sh);
-	gameObject* backPlane = new gameObject();
-	backPlane->getTrans()->setPos(pos);
-	backPlane->getTrans()->setScale(scale);
-	meshRenderer* mr = new meshRenderer();
-	mesh* m = mesh::loadNew("cube.obj");
-	mr->setMesh(m);
-	mr->setMat(mat);
-	backPlane->addComponent(mr);
-	testScene->addGO(backPlane);
-}
-
-void SetupBubbleGame(scene* testScene)
-{
-	GenerateBoxes(testScene, glm::vec3(0,0,-5), glm::vec3(20,10,1));
-	GenerateBoxes(testScene, glm::vec3(0,10,0), glm::vec3(20,1,10));
-	GenerateBoxes(testScene, glm::vec3(0,-10,0), glm::vec3(20,1,10));
-	GenerateBoxes(testScene, glm::vec3(-20,0,0), glm::vec3(1,10,10));
-	GenerateBoxes(testScene, glm::vec3(20,0,0), glm::vec3(1,10,10));
+#include "terrain.h"
+#include "terrainSpherical.h"
+#include "spherePrimitive.h"
+#include "orbitCamera.h"
+#include "lodManager.h"
 
 
-	gameObject* playerCamGO = new gameObject();
-	camera* playerCam = new camera();
-	playerCam->setProjectionPerspective(45, 4,3, 0.1, 500);
-	playerCamGO->addComponent(playerCam);
-	playerCamGO->getTrans()->setRotation(glm::quat(glm::vec3(0.0,-1.57,0.0)));
-	testScene->addGO(playerCamGO);
-
-	gameObject* camGo = new gameObject();
-	camGo->getTrans()->setPos(glm::vec3(0,0,35));
-	camera* cam = new camera();
-	camGo->addComponent(cam);
-	//simple2DCamMove* move = new simple2DCamMove();
-	//camGo->addComponent(move);
-	cam->setProjectionPerspective(45, 4,3, 0.1, 500);
-	testScene->addGO(camGo);
-
-	gameObject* player = new gameObject();
-	material* mat = new material();
-	shader* sh = shader::loadNew("BlinnPhong");
-	tex2d* tex = new tex2d();
-	tex->load("rock_tex.jpg");
-	sh->setValue("mainTex", new uniformTex2d(tex));
-	mat->setShader(sh);
-	meshRenderer* mr = new meshRenderer();
-	mesh* m = mesh::loadNew("chark.3ds", 2);
-	mr->setMesh(m);
-	mr->setMat(mat);
-	pointLight* playerLight = new pointLight(glm::vec3(1,1,0), 20);
-	player->addComponent(playerLight);
-	player->addComponent(mr);
-	playerLogic* pl = new playerLogic(playerCamGO, camGo);
-	player->addComponent(pl);
-	player->getTrans()->setRotation(glm::quat(glm::vec3(0.0,1.57,1.57)));
-	player->getTrans()->setScale(glm::vec3(0.005,0.005,0.005));
-	testScene->addGO(player);
-
-	gameObject* bubbleGen = new gameObject();
-	bubbleGen->addComponent(new bubbleGenerator(player));
-	testScene->addGO(bubbleGen);
-}
-
-int main( void )  
+int main(int argc, char *argv[])  
 {  
+
+	bool mode = false;
+	std::string path = "N50E016.hgt";
+
 	application* app = new application();
+	settings set = settings();
+	set.resX = 1280;
+	set.resY = 720;
+	app->setSettings(set);
 	app->start();
 	scene* testScene = new scene();
 	app->setScene(testScene);
 
-	SetupBubbleGame(testScene);
+	if(mode)
+	{
+		gameObject* playerCamGO = new gameObject();
+		camera* playerCam = new camera();
+		playerCam->setProjectionPerspective(45, 4,3, 0.1, 1000);
+		playerCamGO->addComponent(playerCam);
+		playerCamGO->getTrans()->setRotation(glm::quat(glm::vec3(-0.7,0,0.0)));
+		playerCamGO->getTrans()->setPos(glm::vec3(256,450,700));
+		orbitCamera* ocam = new orbitCamera(glm::vec3(0,0,0), 300);
+		ocam->rotateSpeed = 0.001f;
+		playerCamGO->addComponent(ocam);
+		testScene->addGO(playerCamGO);
+
+		gameObject* terrainGO = new gameObject();
+
+		terrainSpherical* tr = new terrainSpherical(100);
+		tr->load(path);
+
+		terrainGO->addComponent(tr);
+		testScene->addGO(terrainGO);
+	}
+	else
+	{
+		gameObject* playerCamGO = new gameObject();
+		camera* playerCam = new camera();
+		playerCam->setProjectionPerspective(45, 4,3, 0.1, 1000);
+		playerCamGO->addComponent(playerCam);
+		playerCamGO->getTrans()->setRotation(glm::quat(glm::vec3(-0.7,0,0.0)));
+		playerCamGO->getTrans()->setPos(glm::vec3(256,450,700));
+		simple2DCamMove* ocam = new simple2DCamMove();
+		playerCamGO->addComponent(ocam);
+		testScene->addGO(playerCamGO);
+
+		gameObject* terrainGO = new gameObject();
+
+		//terrain* tr = new terrain();
+		//tr->load("N50E016.hgt");
+		lodManager* tr = new lodManager(path);
+
+		terrainGO->addComponent(tr);
+		testScene->addGO(terrainGO);
+	}
 
 	app->run();
 } 

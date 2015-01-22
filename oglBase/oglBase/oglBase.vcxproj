@@ -52,6 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)\libs\glm;$(SolutionDir)\libs\glfw\include;$(SolutionDir)\libs\glew\include;$(SolutionDir)\libs\soil\src;$(SolutionDir)\libs\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,24 +85,27 @@
   <ItemGroup>
     <ClCompile Include="application.cpp" />
     <ClCompile Include="asset.cpp" />
-    <ClCompile Include="bubbleGenerator.cpp" />
-    <ClCompile Include="bubbleLogic.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="component.cpp" />
     <ClCompile Include="directionalLight.cpp" />
     <ClCompile Include="gameObject.cpp" />
+    <ClCompile Include="helper.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="light.cpp" />
+    <ClCompile Include="lodManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="material.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="meshRenderer.cpp" />
-    <ClCompile Include="playerLogic.cpp" />
+    <ClCompile Include="orbitCamera.cpp" />
     <ClCompile Include="pointLight.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="simple2DCamMove.cpp" />
+    <ClCompile Include="spherePrimitive.cpp" />
+    <ClCompile Include="terrain.cpp" />
+    <ClCompile Include="terrainSpherical.cpp" />
     <ClCompile Include="tex2d.cpp" />
     <ClCompile Include="transform.cpp" />
     <ClCompile Include="uniformValue.cpp" />
@@ -109,23 +113,26 @@
   <ItemGroup>
     <ClInclude Include="application.h" />
     <ClInclude Include="asset.h" />
-    <ClInclude Include="bubbleGenerator.h" />
-    <ClInclude Include="bubbleLogic.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="component.h" />
     <ClInclude Include="directionalLight.h" />
     <ClInclude Include="gameObject.h" />
+    <ClInclude Include="helper.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="light.h" />
+    <ClInclude Include="lodManager.h" />
     <ClInclude Include="material.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="meshRenderer.h" />
-    <ClInclude Include="playerLogic.h" />
+    <ClInclude Include="orbitCamera.h" />
     <ClInclude Include="pointLight.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="simple2DCamMove.h" />
+    <ClInclude Include="spherePrimitive.h" />
+    <ClInclude Include="terrain.h" />
+    <ClInclude Include="terrainSpherical.h" />
     <ClInclude Include="tex2d.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="uniformValue.h" />
@@ -138,6 +145,17 @@
     <None Include="Diffuse.vert" />
     <None Include="SingleColor.frag" />
     <None Include="SingleColor.vert" />
+    <None Include="TerrainHeightShader.frag" />
+    <None Include="TerrainHeightShader.vert" />
+    <None Include="TerrainSpherical.frag" />
+    <None Include="TerrainSpherical.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

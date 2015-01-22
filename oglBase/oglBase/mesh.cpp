@@ -1,11 +1,9 @@
 #include "mesh.h"
 
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
 
 mesh::mesh(void)
 {
+	mode = GL_TRIANGLES;
 }
 
 
@@ -61,22 +59,8 @@ bool mesh::load(std::string path, int modelId)
 	}
 
 	indexVBO();
+	build();
 
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
-
-	glGenBuffers(1, &uvbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-	glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
-
-	glGenBuffers(1, &normalbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
-	glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(glm::vec3), &normals[0], GL_STATIC_DRAW);
-
-	glGenBuffers(1, &elementbuffer);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned short), &indices[0] , GL_STATIC_DRAW);
 
 	return true;
 }
@@ -97,7 +81,7 @@ void mesh::passVertices(int vertexModelspaceId, int vertexUVId, int normalId)
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 
-		glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
+		glDrawElements(mode, indices.size(), GL_UNSIGNED_INT, (void*)0);
 
 		glDisableVertexAttribArray(vertexModelspaceId);
 		glDisableVertexAttribArray(vertexUVId);
@@ -148,7 +132,7 @@ void mesh::indexVBO()
 	std::vector<glm::vec3> out_vertices;
 	std::vector<glm::vec2> out_uvs;
 	std::vector<glm::vec3> out_normals;
-	std::vector<unsigned short> out_indices;
+	std::vector<unsigned int> out_indices;
 	for ( unsigned int i=0; i<vertices.size(); i++ )
 	{
 		PackedVertex packed = {vertices[i], uvs[i], normals[i]};
@@ -180,4 +164,24 @@ std::vector<mesh*> mesh::loadAllMeshes(std::string path)
 {
 #pragma message("TODO")
 	return std::vector<mesh*>();
+}
+
+void mesh::build()
+{
+
+	glGenBuffers(1, &vertexbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &uvbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+	glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &normalbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+	glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(glm::vec3), &normals[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &elementbuffer);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0] , GL_STATIC_DRAW);
 }

@@ -13,10 +13,11 @@ public:
 	bool getShowFPS();
 	std::string getAppName();
 
-private:
 	std::string appName;
 	int resX;
 	int resY;
+
+private:
 	int fixedUpdatePS;
 	bool showFPS;
 };

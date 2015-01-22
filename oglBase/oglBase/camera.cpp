@@ -12,7 +12,6 @@ camera::camera(void)
 
 camera::~camera(void)
 {
-	setViewLookAt(glm::vec3(0,0,0), glm::vec3(0,1,0)); 
 }
 
 void camera::draw(void)
@@ -42,15 +41,6 @@ void camera::setProjectionPerspective(float fov, float width, float height, floa
 void camera::setProjection(glm::mat4 proj)
 {
 	projection = proj;
-}
-
-void camera::setViewLookAt(glm::vec3 target, glm::vec3 up)
-{	
-	//view = glm::lookAt(getParent()->getTrans()->getPos(), target, up);
-}
-void camera::setView(glm::mat4 v)
-{
-	//view = v;
 }
 
 glm::mat4 camera::getProjView()

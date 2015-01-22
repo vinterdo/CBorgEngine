@@ -10,6 +10,9 @@ public:
 	virtual bool load(std::string path);
 	int getId();
 
+	int getSizeX();
+	int getSizeY();
+
 private:
 	int texId;
 };

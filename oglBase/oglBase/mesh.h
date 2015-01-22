@@ -5,6 +5,10 @@
 #include <map>
 #include "asset.h"
 
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
 struct PackedVertex
 {
 	glm::vec3 position;
@@ -25,17 +29,23 @@ public:
 	void passVertices(int vertexModelspaceId, int vertexUVId, int normalId);
 	virtual bool load(std::string path);
 	virtual bool load(std::string path, int modelId);
+
+	void build();
+
 	int getVertexBufferId();
 	int getUVBufferId();
 	static mesh* loadNew(std::string path);
 	static mesh* loadNew(std::string path, int modelId);
 	static std::vector<mesh*> loadAllMeshes(std::string path);
 
-private:
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals;
-	std::vector<unsigned short> indices;
+	std::vector<unsigned int> indices;
+
+	GLenum mode;
+
+private:
 	
 	void indexVBO();
 	bool getSimilarVertexIndex_fast(PackedVertex & packed, std::map<PackedVertex,unsigned short> & VertexToOutIndex, unsigned short & result);
@@ -44,5 +54,7 @@ private:
 	unsigned int uvbuffer;
 	unsigned int normalbuffer;
 	unsigned int elementbuffer;
+
+
 };
 

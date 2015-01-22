@@ -15,9 +15,9 @@ public:
 	virtual void start(void) = 0;
 
 	gameObject* getParent();
-	void setParent(gameObject* go);
+	virtual void setParent(gameObject* go);
 
-private:
+protected:
 	gameObject* parent;
 };
 

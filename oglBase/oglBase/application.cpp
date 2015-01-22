@@ -1,5 +1,7 @@
 #include "application.h"
 
+float application::FPS = 0;
+
 application::application(void)
 {
 	currentScene = NULL;
@@ -174,4 +176,9 @@ void application::initOpenGL(void)
 void application::setScene(scene* s)
 {
 	currentScene = s;
+}
+
+float application::getFPS()
+{
+	return FPS;
 }
